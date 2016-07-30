@@ -144,6 +144,123 @@ enum Manager: Entrant {
     }
 }
 
+enum Contractor: Entrant {
+    case project1001
+    case project1002
+    case project1003
+    case project2001
+    case project2002
+    
+    func getAreaAccessDetail() -> AreaAccessType {
+        var amusementAccess: Bool, kitchenAccess: Bool, rideControlAccess: Bool, maintenanceAccess: Bool, officeAccess: Bool
+        switch self {
+        case .project1001:
+            amusementAccess = true
+            rideControlAccess = false
+            kitchenAccess = false
+            maintenanceAccess = false
+            officeAccess = false
+        case .project1002:
+            amusementAccess = true
+            rideControlAccess = false
+            kitchenAccess = false
+            maintenanceAccess = true
+            officeAccess = false
+        case .project1003:
+            amusementAccess = true
+            rideControlAccess = false
+            kitchenAccess = true
+            maintenanceAccess = true
+            officeAccess = true
+        case .project2001:
+            amusementAccess = false
+            rideControlAccess = false
+            kitchenAccess = false
+            maintenanceAccess = false
+            officeAccess = true
+        case .project2002:
+            amusementAccess = false
+            rideControlAccess = false
+            kitchenAccess = true
+            maintenanceAccess = true
+            officeAccess = false
+        }
+        return AreaAccessType(amusement: amusementAccess, kitchen: kitchenAccess, rideControl: rideControlAccess, maintenance: maintenanceAccess, office: officeAccess)
+    }
+    
+    func getRideAccessDetail() -> RideAccessType {
+        var accessAllRides: Bool, skipAllRideLines: Bool
+        switch self {
+        case .project1001, .project1002, .project1003:
+            accessAllRides = true
+            skipAllRideLines = false
+        default:
+            accessAllRides = false
+            skipAllRideLines = false
+        }
+        return RideAccessType(accessAllRides: accessAllRides, skipAllRideLines: skipAllRideLines)
+    }
+    
+    func getDiscountAccessDetail() -> DiscountAccessType {
+        return DiscountAccessType(food: 0, merchandise: 0)
+    }
+}
+
+enum Vendor:Entrant {
+    case acme
+    case orkin
+    case fedex
+    case nwElectrical
+    
+    func getAreaAccessDetail() -> AreaAccessType {
+        var amusementAccess: Bool, kitchenAccess: Bool, rideControlAccess: Bool, maintenanceAccess: Bool, officeAccess: Bool
+        switch self {
+        case .acme:
+            amusementAccess = false
+            rideControlAccess = false
+            kitchenAccess = true
+            maintenanceAccess = false
+            officeAccess = false
+        case .orkin:
+            amusementAccess = true
+            rideControlAccess = false
+            kitchenAccess = true
+            maintenanceAccess = false
+            officeAccess = false
+        case .fedex:
+            amusementAccess = false
+            rideControlAccess = false
+            kitchenAccess = false
+            maintenanceAccess = true
+            officeAccess = true
+        case .nwElectrical:
+            amusementAccess = true
+            rideControlAccess = false
+            kitchenAccess = true
+            maintenanceAccess = true
+            officeAccess = true
+        }
+        return AreaAccessType(amusement: amusementAccess, kitchen: kitchenAccess, rideControl: rideControlAccess, maintenance: maintenanceAccess, office: officeAccess)
+    }
+    
+    func getRideAccessDetail() -> RideAccessType {
+        var accessAllRides: Bool, skipAllRideLines: Bool
+        switch self {
+        case .orkin, .nwElectrical:
+            accessAllRides = true
+            skipAllRideLines = false
+        default:
+            accessAllRides = false
+            skipAllRideLines = false
+        }
+        return RideAccessType(accessAllRides: accessAllRides, skipAllRideLines: skipAllRideLines)
+    }
+    
+    func getDiscountAccessDetail() -> DiscountAccessType {
+        return DiscountAccessType(food: 0, merchandise: 0)
+    }
+}
+
 // MARK: Other objects
 
 struct PersonalInfo {
