@@ -302,190 +302,191 @@ enum RequiredInfoError: ErrorType {
     case MissingDateOfVisit
     case AgeRequirementNotMet
     case DateFormatNotCorrect
+    case MissingRequiredInfo
 }
 
 
 // MARK: Generate Pass
 
-func printPass(entrantType: Entrant, person: PersonalInfo) {
-    if let pass = generatePass(entrantType, person: person) {
-        print(pass.title + "\n" + pass.passType + "\n" + pass.rideInfo + "\n" + pass.foodDiscountInfo + "\n" + pass.merchandiseDiscountInfo)
-    }
-}
+//func printPass(entrantType: Entrant, person: PersonalInfo) {
+//    if let pass = generatePass(entrantType, person: person) {
+//        print(pass.title + "\n" + pass.passType + "\n" + pass.rideInfo + "\n" + pass.foodDiscountInfo + "\n" + pass.merchandiseDiscountInfo)
+//    }
+//}
 
-func generatePass(entrantType: Entrant, person: PersonalInfo) -> Pass? {
-    let title: String
-    let passType: String
-    let rideInfo: String
-    let foodDiscountInfo: String
-    let merchandiseDiscountInfo: String
-    let areaAccess: AreaAccessType
-    let rideAccess: RideAccessType
-    let discountAccess: DiscountAccessType
-    
-    do {
-        let infoGathered = try gatherRequiredInfo(entrantType, person: person)
-        if let firstName = infoGathered.firstName, lastName = infoGathered.lastName {
-            title = "\(firstName) \(lastName)"
-        } else {
-            title = "Amusement Park Pass"
-        }
-        
-        areaAccess = entrantType.getAreaAccessDetail()
-        rideAccess = entrantType.getRideAccessDetail()
-        discountAccess = entrantType.getDiscountAccessDetail()
-        
-        foodDiscountInfo = "\(discountAccess.food)% food discount."
-        merchandiseDiscountInfo = "\(discountAccess.merchandise)% merchandise discount."
-        
-        if rideAccess.accessAllRides == true {
-            if rideAccess.skipAllRideLines == true {
-                rideInfo = "Unlimited Rides. Priority: VIP."
-            } else {
-                rideInfo = "Unlimited Rides. Priority: Regular."
-            }
-        } else {
-            rideInfo = "No access to rides."
-        }
-        
-        switch entrantType {
-        case is Guest:
-            let guestType = entrantType as! Guest
-            switch guestType {
-            case .classic:
-                passType = "Classic Guest Pass"
-            case .freeChild:
-                passType = "Child Guest Pass"
-            case .vip:
-                passType = "VIP Guest Pass"
-            case .seasonPass:
-                passType = "Season Guest Pass"
-            case .senior:
-                passType = "Senior Guest Pass"
-            }
-            
-        case is Manager:
-            passType = "Manager"
-            
-        case is Employee:
-            let employeeType = entrantType as! Employee
-            switch employeeType {
-            case .hourlyFood:
-                passType = "Hourly Employee - Food Services"
-            case .hourlyRide:
-                passType = "Hourly Employee - Ride Services"
-            case .hourlyMaintenance:
-                passType = "Hourly Employee - Maintenance"
-            }
-            
-        case is Contractor:
-            let contractorType = entrantType as! Contractor
-            passType = "Contractor - Project \(contractorType.rawValue)"
-        
-        default:
-            passType = "Vendor - \(infoGathered.company!)"
-        }
-        
-        return Pass(title: title, passType: passType, rideInfo: rideInfo, foodDiscountInfo: foodDiscountInfo, merchandiseDiscountInfo: merchandiseDiscountInfo, areaAccess: areaAccess, rideAccess: rideAccess, discountAccess: discountAccess, personalInfo: infoGathered)
-        
-    } catch let error {
-        print("Error: \(error)")
-        return nil
-    }
-}
+//func generatePass(entrantType: Entrant, person: PersonalInfo) -> Pass? {
+//    let title: String
+//    let passType: String
+//    let rideInfo: String
+//    let foodDiscountInfo: String
+//    let merchandiseDiscountInfo: String
+//    let areaAccess: AreaAccessType
+//    let rideAccess: RideAccessType
+//    let discountAccess: DiscountAccessType
+//    
+//    do {
+//        let infoGathered = try gatherRequiredInfo(entrantType, person: person)
+//        if let firstName = infoGathered.firstName, lastName = infoGathered.lastName {
+//            title = "\(firstName) \(lastName)"
+//        } else {
+//            title = "Amusement Park Pass"
+//        }
+//        
+//        areaAccess = entrantType.getAreaAccessDetail()
+//        rideAccess = entrantType.getRideAccessDetail()
+//        discountAccess = entrantType.getDiscountAccessDetail()
+//        
+//        foodDiscountInfo = "\(discountAccess.food)% food discount."
+//        merchandiseDiscountInfo = "\(discountAccess.merchandise)% merchandise discount."
+//        
+//        if rideAccess.accessAllRides == true {
+//            if rideAccess.skipAllRideLines == true {
+//                rideInfo = "Unlimited Rides. Priority: VIP."
+//            } else {
+//                rideInfo = "Unlimited Rides. Priority: Regular."
+//            }
+//        } else {
+//            rideInfo = "No access to rides."
+//        }
+//        
+//        switch entrantType {
+//        case is Guest:
+//            let guestType = entrantType as! Guest
+//            switch guestType {
+//            case .classic:
+//                passType = "Classic Guest Pass"
+//            case .freeChild:
+//                passType = "Child Guest Pass"
+//            case .vip:
+//                passType = "VIP Guest Pass"
+//            case .seasonPass:
+//                passType = "Season Guest Pass"
+//            case .senior:
+//                passType = "Senior Guest Pass"
+//            }
+//            
+//        case is Manager:
+//            passType = "Manager"
+//            
+//        case is Employee:
+//            let employeeType = entrantType as! Employee
+//            switch employeeType {
+//            case .hourlyFood:
+//                passType = "Hourly Employee - Food Services"
+//            case .hourlyRide:
+//                passType = "Hourly Employee - Ride Services"
+//            case .hourlyMaintenance:
+//                passType = "Hourly Employee - Maintenance"
+//            }
+//            
+//        case is Contractor:
+//            let contractorType = entrantType as! Contractor
+//            passType = "Contractor - Project \(contractorType.rawValue)"
+//        
+//        default:
+//            passType = "Vendor - \(infoGathered.company!)"
+//        }
+//        
+//        return Pass(title: title, passType: passType, rideInfo: rideInfo, foodDiscountInfo: foodDiscountInfo, merchandiseDiscountInfo: merchandiseDiscountInfo, areaAccess: areaAccess, rideAccess: rideAccess, discountAccess: discountAccess, personalInfo: infoGathered)
+//        
+//    } catch let error {
+//        print("Error: \(error)")
+//        return nil
+//    }
+//}
 
-func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> PersonalInfo {
-    switch entrantType {
-    case is Guest:
-        let guestType = entrantType as! Guest
-        switch guestType {
-            
-        case .freeChild:
-            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
-                throw RequiredInfoError.MissingDateOfBirth
-            }
-            if satisfyAgeRequirement(person.dateOfBirth!) {
-                return person
-            } else {
-                throw RequiredInfoError.AgeRequirementNotMet
-            }
-            
-        case .seasonPass:
-            guard person.firstName != nil && person.firstName != "" else {
-                throw RequiredInfoError.MissingFirstName
-            }
-            guard person.lastName != nil && person.lastName != "" else {
-                throw RequiredInfoError.MissingLastName
-            }
-            guard person.street != nil && person.street != "" else {
-                throw RequiredInfoError.MissingStreetAddress
-            }
-            guard person.city != nil && person.city != "" else {
-                throw RequiredInfoError.MissingCity
-            }
-            guard person.state != nil && person.state != "" else {
-                throw RequiredInfoError.MissingState
-            }
-            guard person.zip != nil && person.zip != "" else {
-                throw RequiredInfoError.MissingZipCode
-            }
-            return person
-        case .senior:
-            guard person.firstName != nil && person.firstName != "" else {
-                throw RequiredInfoError.MissingFirstName
-            }
-            guard person.lastName != nil && person.lastName != "" else {
-                throw RequiredInfoError.MissingLastName
-            }
-            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
-                throw RequiredInfoError.MissingDateOfBirth
-            }
-            return person
-        default:
-            return person
-        }
-        
-    case is Vendor:
-        guard person.firstName != nil && person.firstName != "" else {
-            throw RequiredInfoError.MissingFirstName
-        }
-        guard person.lastName != nil && person.lastName != "" else {
-            throw RequiredInfoError.MissingLastName
-        }
-        guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
-            throw RequiredInfoError.MissingDateOfBirth
-        }
-        guard person.company != nil && person.company != "" else {
-            throw RequiredInfoError.MissingCompanyInfo
-        }
-        guard person.dateOfVisit != nil && person.dateOfVisit != "" else {
-            throw RequiredInfoError.MissingDateOfVisit
-        }
-        return person
-        
-    default:
-        // Default will be employee, contractor or manager type, require all the same info
-        guard person.firstName != nil && person.firstName != "" else {
-            throw RequiredInfoError.MissingFirstName
-        }
-        guard person.lastName != nil && person.lastName != "" else {
-            throw RequiredInfoError.MissingLastName
-        }
-        guard person.street != nil && person.street != "" else {
-            throw RequiredInfoError.MissingStreetAddress
-        }
-        guard person.city != nil && person.city != "" else {
-            throw RequiredInfoError.MissingCity
-        }
-        guard person.state != nil && person.state != "" else {
-            throw RequiredInfoError.MissingState
-        }
-        guard person.zip != nil && person.zip != "" else {
-            throw RequiredInfoError.MissingZipCode
-        }
-        return person
-    }
-}
+//func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> PersonalInfo {
+//    switch entrantType {
+//    case is Guest:
+//        let guestType = entrantType as! Guest
+//        switch guestType {
+//            
+//        case .freeChild:
+//            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
+//                throw RequiredInfoError.MissingDateOfBirth
+//            }
+//            if satisfyAgeRequirement(person.dateOfBirth!) {
+//                return person
+//            } else {
+//                throw RequiredInfoError.AgeRequirementNotMet
+//            }
+//            
+//        case .seasonPass:
+//            guard person.firstName != nil && person.firstName != "" else {
+//                throw RequiredInfoError.MissingFirstName
+//            }
+//            guard person.lastName != nil && person.lastName != "" else {
+//                throw RequiredInfoError.MissingLastName
+//            }
+//            guard person.street != nil && person.street != "" else {
+//                throw RequiredInfoError.MissingStreetAddress
+//            }
+//            guard person.city != nil && person.city != "" else {
+//                throw RequiredInfoError.MissingCity
+//            }
+//            guard person.state != nil && person.state != "" else {
+//                throw RequiredInfoError.MissingState
+//            }
+//            guard person.zip != nil && person.zip != "" else {
+//                throw RequiredInfoError.MissingZipCode
+//            }
+//            return person
+//        case .senior:
+//            guard person.firstName != nil && person.firstName != "" else {
+//                throw RequiredInfoError.MissingFirstName
+//            }
+//            guard person.lastName != nil && person.lastName != "" else {
+//                throw RequiredInfoError.MissingLastName
+//            }
+//            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
+//                throw RequiredInfoError.MissingDateOfBirth
+//            }
+//            return person
+//        default:
+//            return person
+//        }
+//        
+//    case is Vendor:
+//        guard person.firstName != nil && person.firstName != "" else {
+//            throw RequiredInfoError.MissingFirstName
+//        }
+//        guard person.lastName != nil && person.lastName != "" else {
+//            throw RequiredInfoError.MissingLastName
+//        }
+//        guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
+//            throw RequiredInfoError.MissingDateOfBirth
+//        }
+//        guard person.company != nil && person.company != "" else {
+//            throw RequiredInfoError.MissingCompanyInfo
+//        }
+//        guard person.dateOfVisit != nil && person.dateOfVisit != "" else {
+//            throw RequiredInfoError.MissingDateOfVisit
+//        }
+//        return person
+//        
+//    default:
+//        // Default will be employee, contractor or manager type, require all the same info
+//        guard person.firstName != nil && person.firstName != "" else {
+//            throw RequiredInfoError.MissingFirstName
+//        }
+//        guard person.lastName != nil && person.lastName != "" else {
+//            throw RequiredInfoError.MissingLastName
+//        }
+//        guard person.street != nil && person.street != "" else {
+//            throw RequiredInfoError.MissingStreetAddress
+//        }
+//        guard person.city != nil && person.city != "" else {
+//            throw RequiredInfoError.MissingCity
+//        }
+//        guard person.state != nil && person.state != "" else {
+//            throw RequiredInfoError.MissingState
+//        }
+//        guard person.zip != nil && person.zip != "" else {
+//            throw RequiredInfoError.MissingZipCode
+//        }
+//        return person
+//    }
+//}
 
 
 

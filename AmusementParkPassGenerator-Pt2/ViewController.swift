@@ -321,8 +321,9 @@ class ViewController: UIViewController {
     
     
     @IBAction func generatePassInUI(sender: AnyObject) {
-        let personalInfo = PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
-        printPass(entrantType, person: personalInfo)
+        if let pass = generatePass(entrantType){
+            print(pass.title + "\n" + pass.passType + "\n" + pass.rideInfo + "\n" + pass.foodDiscountInfo + "\n" + pass.merchandiseDiscountInfo)
+        }
     }
     
     // Helper methods
@@ -369,6 +370,108 @@ class ViewController: UIViewController {
         label.textColor = activatedLabelColor
         textField.enabled = true
         textField.backgroundColor = UIColor.whiteColor()
+    }
+    
+    func generatePass(entrantType: Entrant) -> Pass? {
+        let title: String
+        let passType: String
+        let rideInfo: String
+        let foodDiscountInfo: String
+        let merchandiseDiscountInfo: String
+        let areaAccess: AreaAccessType
+        let rideAccess: RideAccessType
+        let discountAccess: DiscountAccessType
+        
+        do {
+            let infoGathered = try gatherRequiredInfo()
+            if let firstName = infoGathered.firstName, lastName = infoGathered.lastName {
+                title = "\(firstName) \(lastName)"
+            } else {
+                title = "Amusement Park Pass"
+            }
+            
+            areaAccess = entrantType.getAreaAccessDetail()
+            rideAccess = entrantType.getRideAccessDetail()
+            discountAccess = entrantType.getDiscountAccessDetail()
+            
+            foodDiscountInfo = "\(discountAccess.food)% food discount."
+            merchandiseDiscountInfo = "\(discountAccess.merchandise)% merchandise discount."
+            
+            if rideAccess.accessAllRides == true {
+                if rideAccess.skipAllRideLines == true {
+                    rideInfo = "Unlimited Rides. Priority: VIP."
+                } else {
+                    rideInfo = "Unlimited Rides. Priority: Regular."
+                }
+            } else {
+                rideInfo = "No access to rides."
+            }
+            
+            switch entrantType {
+            case is Guest:
+                let guestType = entrantType as! Guest
+                switch guestType {
+                case .classic:
+                    passType = "Classic Guest Pass"
+                case .freeChild:
+                    passType = "Child Guest Pass"
+                case .vip:
+                    passType = "VIP Guest Pass"
+                case .seasonPass:
+                    passType = "Season Guest Pass"
+                case .senior:
+                    passType = "Senior Guest Pass"
+                }
+                
+            case is Manager:
+                passType = "Manager"
+                
+            case is Employee:
+                let employeeType = entrantType as! Employee
+                switch employeeType {
+                case .hourlyFood:
+                    passType = "Hourly Employee - Food Services"
+                case .hourlyRide:
+                    passType = "Hourly Employee - Ride Services"
+                case .hourlyMaintenance:
+                    passType = "Hourly Employee - Maintenance"
+                }
+                
+            case is Contractor:
+                let contractorType = entrantType as! Contractor
+                passType = "Contractor - Project \(contractorType.rawValue)"
+                
+            default:
+                passType = "Vendor - \(infoGathered.company!)"
+            }
+            
+            return Pass(title: title, passType: passType, rideInfo: rideInfo, foodDiscountInfo: foodDiscountInfo, merchandiseDiscountInfo: merchandiseDiscountInfo, areaAccess: areaAccess, rideAccess: rideAccess, discountAccess: discountAccess, personalInfo: infoGathered)
+            
+        } catch let error {
+            print("Error: \(error)")
+            return nil
+        }
+    }
+    
+    func gatherRequiredInfo() throws -> PersonalInfo {
+        // Gather all required info
+        let allTextFields = [dateOfBirthTextField, projectNumberTextField, firstNameTextField, lastNameTextField, companyTextField, dateOfVisitTextField, streetTextField, cityTextField, stateTextField, zipTextField]
+        var enabledTextFields: [UITextField] = []
+        
+        for textField in allTextFields {
+            if textField.enabled == true {
+                enabledTextFields.append(textField)
+            }
+        }
+        for textField in enabledTextFields {
+            guard textField.text != nil && textField.text != "" else {
+                throw RequiredInfoError.MissingRequiredInfo
+            }
+        }
+        
+        // Verify child age requirement
+        
+        return PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
     }
 
     
