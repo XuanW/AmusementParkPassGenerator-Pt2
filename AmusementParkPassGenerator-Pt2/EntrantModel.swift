@@ -272,6 +272,7 @@ struct PersonalInfo {
     var state: String?
     var zip: String?
     var company: String?
+    var dateOfVisit: String?
     
 }
 
@@ -298,6 +299,7 @@ enum RequiredInfoError: ErrorType {
     case MissingZipCode
     case MissingDateOfBirth
     case MissingCompanyInfo
+    case MissingDateOfVisit
     case AgeRequirementNotMet
     case DateFormatNotCorrect
 }
@@ -454,6 +456,9 @@ func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> Pe
         }
         guard person.company != nil else {
             throw RequiredInfoError.MissingCompanyInfo
+        }
+        guard person.dateOfVisit != nil else {
+            throw RequiredInfoError.MissingDateOfVisit
         }
         return person
         
