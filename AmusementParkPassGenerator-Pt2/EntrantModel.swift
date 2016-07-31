@@ -145,11 +145,11 @@ enum Manager: Entrant {
 }
 
 enum Contractor: String, Entrant {
-    case project1001 = "Project 1001"
-    case project1002 = "Project 1002"
-    case project1003 = "Project 1003"
-    case project2001 = "Project 2001"
-    case project2002 = "Project 2002"
+    case project1001 = "1001"
+    case project1002 = "1002"
+    case project1003 = "1003"
+    case project2001 = "2001"
+    case project2002 = "2002"
     
     func getAreaAccessDetail() -> AreaAccessType {
         var amusementAccess: Bool, kitchenAccess: Bool, rideControlAccess: Bool, maintenanceAccess: Bool, officeAccess: Bool
@@ -378,7 +378,7 @@ func generatePass(entrantType: Entrant, person: PersonalInfo) -> Pass? {
             
         case is Contractor:
             let contractorType = entrantType as! Contractor
-            passType = "Contractor - \(contractorType.rawValue)"
+            passType = "Contractor - Project \(contractorType.rawValue)"
         
         default:
             passType = "Vendor - \(infoGathered.company!)"

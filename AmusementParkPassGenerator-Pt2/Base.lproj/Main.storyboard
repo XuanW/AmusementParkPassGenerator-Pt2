@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AmusementParkPassGenerator_Pt2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +18,199 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ll-fA-px1">
+                                <rect key="frame" x="0.0" y="20" width="600" height="36"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hF9-rU-NWP" userLabel="Entrant Type">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="36"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OKx-v6-cGz">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Guest">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setSubBtns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KTl-Py-rpd"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-RO-2lG">
+                                                <rect key="frame" x="120" y="0.0" width="120" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Employee">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setSubBtns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="I9P-ji-OV1"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6y-9S-H2O">
+                                                <rect key="frame" x="240" y="0.0" width="120" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Manager">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setSubBtns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wYD-tQ-bog"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LY3-XS-Dnf">
+                                                <rect key="frame" x="360" y="0.0" width="120" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Contractor">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setSubBtns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JEb-49-U0y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="abI-Nh-1Wp">
+                                                <rect key="frame" x="480" y="0.0" width="120" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <state key="normal" title="Vendor">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="setSubBtns:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S5g-JP-IYd"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.54117647058823526" green="0.42745098039215684" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="hF9-rU-NWP" firstAttribute="height" secondItem="2ll-fA-px1" secondAttribute="height" id="QJ9-te-VK1"/>
+                                    <constraint firstItem="hF9-rU-NWP" firstAttribute="width" secondItem="2ll-fA-px1" secondAttribute="width" id="QXY-1H-qjS"/>
+                                    <constraint firstItem="hF9-rU-NWP" firstAttribute="centerY" secondItem="2ll-fA-px1" secondAttribute="centerY" id="WdB-l2-FyC"/>
+                                    <constraint firstItem="hF9-rU-NWP" firstAttribute="centerX" secondItem="2ll-fA-px1" secondAttribute="centerX" id="aB9-Yu-bVZ"/>
+                                    <constraint firstItem="hF9-rU-NWP" firstAttribute="top" secondItem="2ll-fA-px1" secondAttribute="topMargin" id="qg7-55-IYN"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="qg7-55-IYN"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QOY-pT-xW6">
+                                <rect key="frame" x="0.0" y="56" width="600" height="30"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="s9p-Ia-0ud" userLabel="Sub Type">
+                                        <rect key="frame" x="0.0" y="-2" width="600" height="33"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9fz-El-K9Z">
+                                                <rect key="frame" x="0.0" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-fQ-RIn">
+                                                <rect key="frame" x="120" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cQ-s7-HKH">
+                                                <rect key="frame" x="240" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-jC-fVE">
+                                                <rect key="frame" x="360" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jF-yK-POC">
+                                                <rect key="frame" x="480" y="0.0" width="120" height="33"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <state key="selected">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.24705882352941178" green="0.21176470588235294" blue="0.28235294117647058" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="s9p-Ia-0ud" firstAttribute="leading" secondItem="QOY-pT-xW6" secondAttribute="leading" id="Bly-90-NKx"/>
+                                    <constraint firstItem="s9p-Ia-0ud" firstAttribute="centerY" secondItem="QOY-pT-xW6" secondAttribute="centerY" id="KBH-0B-aov"/>
+                                    <constraint firstAttribute="trailing" secondItem="s9p-Ia-0ud" secondAttribute="trailing" id="Nel-q4-umK"/>
+                                    <constraint firstItem="s9p-Ia-0ud" firstAttribute="centerX" secondItem="QOY-pT-xW6" secondAttribute="centerX" id="edn-yI-gZz"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="2ll-fA-px1" secondAttribute="trailing" id="DuW-xk-R9W"/>
+                            <constraint firstItem="2ll-fA-px1" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.06" id="FV1-zU-16Y"/>
+                            <constraint firstItem="2ll-fA-px1" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Vzu-3r-4BS"/>
+                            <constraint firstItem="QOY-pT-xW6" firstAttribute="top" secondItem="2ll-fA-px1" secondAttribute="bottom" id="c6V-0P-TWe"/>
+                            <constraint firstItem="2ll-fA-px1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="eBQ-vN-yfb"/>
+                            <constraint firstItem="QOY-pT-xW6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="elf-6x-V5q"/>
+                            <constraint firstItem="2ll-fA-px1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="hsh-tl-sLz"/>
+                            <constraint firstItem="2ll-fA-px1" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="jxg-dE-CR8"/>
+                            <constraint firstItem="QOY-pT-xW6" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.05" id="nwf-81-F2O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="QOY-pT-xW6" secondAttribute="trailing" constant="-20" id="uH3-R0-MPb"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Vzu-3r-4BS"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="contractorBtn" destination="LY3-XS-Dnf" id="Pi5-0G-Azh"/>
+                        <outlet property="employeeBtn" destination="k5M-RO-2lG" id="t5N-ys-VNR"/>
+                        <outlet property="guestBtn" destination="OKx-v6-cGz" id="wne-6S-Rwd"/>
+                        <outlet property="managerBtn" destination="S6y-9S-H2O" id="wcK-Rf-4mc"/>
+                        <outlet property="subBtn1" destination="9fz-El-K9Z" id="bvC-dh-Qhj"/>
+                        <outlet property="subBtn2" destination="Oov-fQ-RIn" id="FZA-DH-GMc"/>
+                        <outlet property="subBtn3" destination="5cQ-s7-HKH" id="C44-pj-wzj"/>
+                        <outlet property="subBtn4" destination="DBn-jC-fVE" id="1hh-7G-RMF"/>
+                        <outlet property="subBtn5" destination="2jF-yK-POC" id="FCj-66-4A4"/>
+                        <outlet property="subTypeStackView" destination="s9p-Ia-0ud" id="g7U-pt-tbU"/>
+                        <outlet property="vendorBtn" destination="abI-Nh-1Wp" id="stp-Lf-W6m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="700" y="478"/>
         </scene>
     </scenes>
 </document>

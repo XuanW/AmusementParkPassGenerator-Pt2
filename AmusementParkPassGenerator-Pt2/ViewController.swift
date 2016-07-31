@@ -9,10 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var guestBtn: UIButton!
+    @IBOutlet weak var employeeBtn: UIButton!
+    @IBOutlet weak var managerBtn: UIButton!
+    @IBOutlet weak var contractorBtn: UIButton!
+    @IBOutlet weak var vendorBtn: UIButton!
+    @IBOutlet weak var subTypeStackView: UIStackView!
+    @IBOutlet weak var subBtn1: UIButton!
+    @IBOutlet weak var subBtn2: UIButton!
+    @IBOutlet weak var subBtn3: UIButton!
+    @IBOutlet weak var subBtn4: UIButton!
+    @IBOutlet weak var subBtn5: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
         
         // Plug data for pass generation testing
         
@@ -105,6 +119,8 @@ class ViewController: UIViewController {
 //            print("\n")
 //            discountAccessSwiper(pass)
 //        }
+    
+    
     }
 
     override func didReceiveMemoryWarning() {
@@ -112,6 +128,61 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+
+    
+    @IBAction func setSubBtns(sender: UIButton) {
+        resetAllBtns()
+        displayAllSubBtns()
+        sender.selected = true
+        sender.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 22.0)
+        switch sender {
+        case guestBtn:
+            subBtn1.setTitle("Child", forState: .Normal)
+            subBtn2.setTitle("Adult", forState: .Normal)
+            subBtn3.setTitle("Senior", forState: .Normal)
+            subBtn4.setTitle("Season", forState: .Normal)
+            subBtn5.setTitle("VIP", forState: .Normal)
+        case employeeBtn:
+            subBtn1.setTitle("Food Services", forState: .Normal)
+            subBtn2.setTitle("Ride Services", forState: .Normal)
+            subBtn3.setTitle("Maintenance", forState: .Normal)
+            subBtn4.hidden = true
+            subBtn5.hidden = true
+        case managerBtn:
+            subBtn2.hidden = true
+            subBtn3.hidden = true
+            subBtn4.hidden = true
+            subBtn5.hidden = true
+        case contractorBtn:
+            subBtn1.setTitle("Project 1001", forState: .Normal)
+            subBtn2.setTitle("Project 1002", forState: .Normal)
+            subBtn3.setTitle("Project 1003", forState: .Normal)
+            subBtn4.setTitle("Project 2001", forState: .Normal)
+            subBtn5.setTitle("Project 2002", forState: .Normal)
+        default:
+            subBtn1.setTitle("Acme", forState: .Normal)
+            subBtn2.setTitle("Orkin", forState: .Normal)
+            subBtn3.setTitle("Fedex", forState: .Normal)
+            subBtn4.setTitle("NW Electrical", forState: .Normal)
+            subBtn5.hidden = true
+        }
+    }
+    
+    func resetAllBtns() {
+        let allBtns = [guestBtn, employeeBtn, managerBtn, contractorBtn, vendorBtn]
+        for btn in allBtns {
+            btn.selected = false
+            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 22.0)
+        }
+    }
+    
+    func displayAllSubBtns() {
+        subBtn1.hidden = false
+        subBtn2.hidden = false
+        subBtn3.hidden = false
+        subBtn4.hidden = false
+        subBtn5.hidden = false
+    }
 
 }
 
