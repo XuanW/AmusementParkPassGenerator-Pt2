@@ -470,6 +470,20 @@ class ViewController: UIViewController {
         }
         
         // Verify child age requirement
+        if entrantType is Guest {
+            let guestType = entrantType as! Guest
+            switch guestType {
+            case .freeChild:
+                if !satisfyChildAgeRequirement(dateOfBirthTextField.text!) {
+                    throw RequiredInfoError.AgeRequirementNotMet
+                }
+            case .senior:
+                if !satisfySeniorAgeRequirement(dateOfBirthTextField.text!) {
+                    throw RequiredInfoError.AgeRequirementNotMet
+                }
+            default: break
+            }
+        }
         
         return PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
     }

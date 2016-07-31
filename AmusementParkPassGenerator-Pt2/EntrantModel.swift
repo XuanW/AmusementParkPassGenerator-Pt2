@@ -502,7 +502,7 @@ func convertStringToNSDate(dateOfBirthAsString: String) throws -> NSDate? {
     }
 }
 
-func satisfyAgeRequirement(dateOfBirthAsString: String) -> Bool {
+func satisfyChildAgeRequirement(dateOfBirthAsString: String) -> Bool {
     do {
         let currentDate = NSDate()
         if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
@@ -519,6 +519,25 @@ func satisfyAgeRequirement(dateOfBirthAsString: String) -> Bool {
     }
     return false
 }
+
+func satisfySeniorAgeRequirement(dateOfBirthAsString: String) -> Bool {
+    do {
+        let currentDate = NSDate()
+        if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
+            let diffDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: currentDate, options: NSCalendarOptions.init(rawValue: 0))
+            if diffDateComponents.year >= 60 {
+                return true
+            } else {
+                return false
+            }
+        }
+    }
+    catch let error {
+        print("Error: \(error)")
+    }
+    return false
+}
+
 
 func checkBirthday(dateOfBirthAsString: String) {
     do {
