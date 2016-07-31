@@ -492,7 +492,7 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <segue destination="pab-4J-bFm" kind="presentation" id="EBH-hk-3wm"/>
+                                            <action selector="generatePassInUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ym-fw-dnn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjU-HH-0MM">

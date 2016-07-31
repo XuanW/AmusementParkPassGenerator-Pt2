@@ -399,44 +399,45 @@ func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> Pe
     case is Guest:
         let guestType = entrantType as! Guest
         switch guestType {
+            
         case .freeChild:
-            if let dateOfBirth = person.dateOfBirth {
-                if satisfyAgeRequirement(dateOfBirth) {
-                    return person
-                } else {
-                    throw RequiredInfoError.AgeRequirementNotMet
-                }
-            } else {
+            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
                 throw RequiredInfoError.MissingDateOfBirth
             }
+            if satisfyAgeRequirement(person.dateOfBirth!) {
+                return person
+            } else {
+                throw RequiredInfoError.AgeRequirementNotMet
+            }
+            
         case .seasonPass:
-            guard person.firstName != nil else {
+            guard person.firstName != nil && person.firstName != "" else {
                 throw RequiredInfoError.MissingFirstName
             }
-            guard person.lastName != nil else {
+            guard person.lastName != nil && person.lastName != "" else {
                 throw RequiredInfoError.MissingLastName
             }
-            guard person.street != nil else {
+            guard person.street != nil && person.street != "" else {
                 throw RequiredInfoError.MissingStreetAddress
             }
-            guard person.city != nil else {
+            guard person.city != nil && person.city != "" else {
                 throw RequiredInfoError.MissingCity
             }
-            guard person.state != nil else {
+            guard person.state != nil && person.state != "" else {
                 throw RequiredInfoError.MissingState
             }
-            guard person.zip != nil else {
+            guard person.zip != nil && person.zip != "" else {
                 throw RequiredInfoError.MissingZipCode
             }
             return person
         case .senior:
-            guard person.firstName != nil else {
+            guard person.firstName != nil && person.firstName != "" else {
                 throw RequiredInfoError.MissingFirstName
             }
-            guard person.lastName != nil else {
+            guard person.lastName != nil && person.lastName != "" else {
                 throw RequiredInfoError.MissingLastName
             }
-            guard person.dateOfBirth != nil else {
+            guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
                 throw RequiredInfoError.MissingDateOfBirth
             }
             return person
@@ -445,41 +446,41 @@ func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> Pe
         }
         
     case is Vendor:
-        guard person.firstName != nil else {
+        guard person.firstName != nil && person.firstName != "" else {
             throw RequiredInfoError.MissingFirstName
         }
-        guard person.lastName != nil else {
+        guard person.lastName != nil && person.lastName != "" else {
             throw RequiredInfoError.MissingLastName
         }
-        guard person.dateOfBirth != nil else {
+        guard person.dateOfBirth != nil && person.dateOfBirth != "" else {
             throw RequiredInfoError.MissingDateOfBirth
         }
-        guard person.company != nil else {
+        guard person.company != nil && person.company != "" else {
             throw RequiredInfoError.MissingCompanyInfo
         }
-        guard person.dateOfVisit != nil else {
+        guard person.dateOfVisit != nil && person.dateOfVisit != "" else {
             throw RequiredInfoError.MissingDateOfVisit
         }
         return person
         
     default:
         // Default will be employee, contractor or manager type, require all the same info
-        guard person.firstName != nil else {
+        guard person.firstName != nil && person.firstName != "" else {
             throw RequiredInfoError.MissingFirstName
         }
-        guard person.lastName != nil else {
+        guard person.lastName != nil && person.lastName != "" else {
             throw RequiredInfoError.MissingLastName
         }
-        guard person.street != nil else {
+        guard person.street != nil && person.street != "" else {
             throw RequiredInfoError.MissingStreetAddress
         }
-        guard person.city != nil else {
+        guard person.city != nil && person.city != "" else {
             throw RequiredInfoError.MissingCity
         }
-        guard person.state != nil else {
+        guard person.state != nil && person.state != "" else {
             throw RequiredInfoError.MissingState
         }
-        guard person.zip != nil else {
+        guard person.zip != nil && person.zip != "" else {
             throw RequiredInfoError.MissingZipCode
         }
         return person
