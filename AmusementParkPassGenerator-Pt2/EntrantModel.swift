@@ -144,12 +144,12 @@ enum Manager: Entrant {
     }
 }
 
-enum Contractor: Entrant {
-    case project1001
-    case project1002
-    case project1003
-    case project2001
-    case project2002
+enum Contractor: String, Entrant {
+    case project1001 = "Project 1001"
+    case project1002 = "Project 1002"
+    case project1003 = "Project 1003"
+    case project2001 = "Project 2001"
+    case project2002 = "Project 2002"
     
     func getAreaAccessDetail() -> AreaAccessType {
         var amusementAccess: Bool, kitchenAccess: Bool, rideControlAccess: Bool, maintenanceAccess: Bool, officeAccess: Bool
@@ -206,7 +206,7 @@ enum Contractor: Entrant {
     }
 }
 
-enum Vendor:Entrant {
+enum Vendor: Entrant {
     case acme
     case orkin
     case fedex
@@ -271,6 +271,7 @@ struct PersonalInfo {
     var city: String?
     var state: String?
     var zip: String?
+    var company: String?
     
 }
 
@@ -296,6 +297,7 @@ enum RequiredInfoError: ErrorType {
     case MissingState
     case MissingZipCode
     case MissingDateOfBirth
+    case MissingCompanyInfo
     case AgeRequirementNotMet
     case DateFormatNotCorrect
 }
@@ -363,7 +365,7 @@ func generatePass(entrantType: Entrant, person: PersonalInfo) -> Pass? {
         case is Manager:
             passType = "Manager"
             
-        default:
+        case is Employee:
             let employeeType = entrantType as! Employee
             switch employeeType {
             case .hourlyFood:
@@ -373,6 +375,13 @@ func generatePass(entrantType: Entrant, person: PersonalInfo) -> Pass? {
             case .hourlyMaintenance:
                 passType = "Hourly Employee - Maintenance"
             }
+            
+        case is Contractor:
+            let contractorType = entrantType as! Contractor
+            passType = "Contractor - \(contractorType.rawValue)"
+        
+        default:
+            passType = "Vendor - \(infoGathered.company!)"
         }
         
         return Pass(title: title, passType: passType, rideInfo: rideInfo, foodDiscountInfo: foodDiscountInfo, merchandiseDiscountInfo: merchandiseDiscountInfo, areaAccess: areaAccess, rideAccess: rideAccess, discountAccess: discountAccess, personalInfo: infoGathered)
@@ -432,8 +441,24 @@ func gatherRequiredInfo(entrantType: Entrant, person: PersonalInfo) throws -> Pe
         default:
             return person
         }
+        
+    case is Vendor:
+        guard person.firstName != nil else {
+            throw RequiredInfoError.MissingFirstName
+        }
+        guard person.lastName != nil else {
+            throw RequiredInfoError.MissingLastName
+        }
+        guard person.dateOfBirth != nil else {
+            throw RequiredInfoError.MissingDateOfBirth
+        }
+        guard person.company != nil else {
+            throw RequiredInfoError.MissingCompanyInfo
+        }
+        return person
+        
     default:
-        // Default will be employee or manager type, require all info except date of birth
+        // Default will be employee, contractor or manager type, require all the same info
         guard person.firstName != nil else {
             throw RequiredInfoError.MissingFirstName
         }
