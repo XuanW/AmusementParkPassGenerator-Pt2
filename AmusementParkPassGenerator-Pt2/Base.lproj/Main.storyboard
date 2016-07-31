@@ -122,6 +122,9 @@
                                                 <state key="selected">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFt-MF-Pmr"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oov-fQ-RIn">
                                                 <rect key="frame" x="154" y="0.0" width="153" height="33"/>
@@ -132,6 +135,9 @@
                                                 <state key="selected">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFB-bd-CZt"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5cQ-s7-HKH">
                                                 <rect key="frame" x="307" y="0.0" width="154" height="33"/>
@@ -142,6 +148,9 @@
                                                 <state key="selected">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KW6-Mr-T8p"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-jC-fVE">
                                                 <rect key="frame" x="461" y="0.0" width="153" height="33"/>
@@ -152,6 +161,9 @@
                                                 <state key="selected">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dSg-SM-QGu"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jF-yK-POC">
                                                 <rect key="frame" x="614" y="0.0" width="154" height="33"/>
@@ -162,6 +174,9 @@
                                                 <state key="selected">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDq-NU-bdj"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -548,17 +563,36 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="cityLabel" destination="kxS-Lj-TtR" id="6au-qJ-e9a"/>
+                        <outlet property="cityTextField" destination="R1h-I0-5Ay" id="Df2-m9-orX"/>
+                        <outlet property="companyLabel" destination="ehv-d9-UeA" id="4mu-nr-KIN"/>
+                        <outlet property="companyTextField" destination="X0o-3V-0z8" id="UIY-JJ-Cyn"/>
                         <outlet property="contractorBtn" destination="LY3-XS-Dnf" id="Pi5-0G-Azh"/>
+                        <outlet property="dateOfBirthLabel" destination="cBO-cB-Zhk" id="egL-d5-WB5"/>
+                        <outlet property="dateOfBirthTextField" destination="Dxr-hK-Lia" id="hfi-iq-p8A"/>
+                        <outlet property="dateOfVisitLabel" destination="E8D-Do-xtT" id="kgU-zv-kg1"/>
+                        <outlet property="dateOfVisitTextField" destination="pdm-5z-ecP" id="zrv-eA-Ywl"/>
                         <outlet property="employeeBtn" destination="k5M-RO-2lG" id="t5N-ys-VNR"/>
+                        <outlet property="firstNameLabel" destination="G4t-zW-DJe" id="Ea4-r3-SCp"/>
+                        <outlet property="firstNameTextField" destination="cyA-4s-M65" id="G8P-ol-fYd"/>
                         <outlet property="guestBtn" destination="OKx-v6-cGz" id="wne-6S-Rwd"/>
+                        <outlet property="lastNameLabel" destination="ml0-Zl-n9j" id="ALZ-2D-JhT"/>
+                        <outlet property="lastNameTextField" destination="zBQ-fs-6xd" id="8Q3-eb-Fhp"/>
                         <outlet property="managerBtn" destination="S6y-9S-H2O" id="wcK-Rf-4mc"/>
+                        <outlet property="projectNumberLabel" destination="6WW-3G-B77" id="3JI-MY-gNA"/>
+                        <outlet property="projectNumberTextField" destination="AYk-XZ-Efu" id="0sH-RY-Un6"/>
+                        <outlet property="stateLabel" destination="PWI-MH-1JC" id="LfR-CQ-be7"/>
+                        <outlet property="stateTextField" destination="saD-fY-gKt" id="pQI-mG-bVe"/>
+                        <outlet property="streetLabel" destination="Vmc-al-7hf" id="Sfk-nU-DZH"/>
+                        <outlet property="streetTextField" destination="iaJ-ce-Uoi" id="Bqh-bc-pIq"/>
                         <outlet property="subBtn1" destination="9fz-El-K9Z" id="bvC-dh-Qhj"/>
                         <outlet property="subBtn2" destination="Oov-fQ-RIn" id="FZA-DH-GMc"/>
                         <outlet property="subBtn3" destination="5cQ-s7-HKH" id="C44-pj-wzj"/>
                         <outlet property="subBtn4" destination="DBn-jC-fVE" id="1hh-7G-RMF"/>
                         <outlet property="subBtn5" destination="2jF-yK-POC" id="FCj-66-4A4"/>
-                        <outlet property="subTypeStackView" destination="s9p-Ia-0ud" id="g7U-pt-tbU"/>
                         <outlet property="vendorBtn" destination="abI-Nh-1Wp" id="stp-Lf-W6m"/>
+                        <outlet property="zipLabel" destination="P3n-N8-cB3" id="Qlg-Hb-BAM"/>
+                        <outlet property="zipTextField" destination="VUm-zg-VO4" id="ahD-dT-iKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -15,12 +15,34 @@ class ViewController: UIViewController {
     @IBOutlet weak var managerBtn: UIButton!
     @IBOutlet weak var contractorBtn: UIButton!
     @IBOutlet weak var vendorBtn: UIButton!
-    @IBOutlet weak var subTypeStackView: UIStackView!
     @IBOutlet weak var subBtn1: UIButton!
     @IBOutlet weak var subBtn2: UIButton!
     @IBOutlet weak var subBtn3: UIButton!
     @IBOutlet weak var subBtn4: UIButton!
     @IBOutlet weak var subBtn5: UIButton!
+    
+    @IBOutlet weak var dateOfBirthTextField: UITextField!
+    @IBOutlet weak var projectNumberTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
+    @IBOutlet weak var companyTextField: UITextField!
+    @IBOutlet weak var dateOfVisitTextField: UITextField!
+    @IBOutlet weak var streetTextField: UITextField!
+    @IBOutlet weak var cityTextField: UITextField!
+    @IBOutlet weak var stateTextField: UITextField!
+    @IBOutlet weak var zipTextField: UITextField!
+    
+    @IBOutlet weak var dateOfBirthLabel: UILabel!
+    @IBOutlet weak var projectNumberLabel: UILabel!
+    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var companyLabel: UILabel!
+    @IBOutlet weak var dateOfVisitLabel: UILabel!
+    @IBOutlet weak var streetLabel: UILabel!
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var stateLabel: UILabel!
+    @IBOutlet weak var zipLabel: UILabel!
+    
     
 
     override func viewDidLoad() {
@@ -135,7 +157,9 @@ class ViewController: UIViewController {
 
     
     @IBAction func setSubBtns(sender: UIButton) {
-        resetAllBtns()
+        resetAllFirstLevelBtns()
+        resetAllSubBtns()
+        resetFormFields()
         displayAllSubBtns()
         sender.selected = true
         sender.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 22.0)
@@ -153,6 +177,7 @@ class ViewController: UIViewController {
             subBtn4.hidden = true
             subBtn5.hidden = true
         case managerBtn:
+            subBtn1.setTitle("Manager", forState: .Normal)
             subBtn2.hidden = true
             subBtn3.hidden = true
             subBtn4.hidden = true
@@ -172,11 +197,69 @@ class ViewController: UIViewController {
         }
     }
     
-    func resetAllBtns() {
+    @IBAction func setFormFields(sender: UIButton) {
+        resetAllSubBtns()
+        resetFormFields()
+        sender.selected = true
+        sender.titleLabel?.font = UIFont(name:"HelveticaNeue-Bold", size: 18.0)
+        if guestBtn.selected == true {
+            switch sender {
+            case subBtn1:
+                // Child pass, require date of birth
+                activateTextField(label: dateOfBirthLabel, textField: dateOfBirthTextField)
+            case subBtn3:
+                // Senior pass, require first & last name, date of birth
+                activateTextField(label: dateOfBirthLabel, textField: dateOfBirthTextField)
+                activateTextField(label: firstNameLabel, textField: firstNameTextField)
+                activateTextField(label: lastNameLabel, textField: lastNameTextField)
+            case subBtn4:
+                // Season pass, require first & last name, full address
+                activateTextField(label: firstNameLabel, textField: firstNameTextField)
+                activateTextField(label: lastNameLabel, textField: lastNameTextField)
+                activateTextField(label: streetLabel, textField: streetTextField)
+                activateTextField(label: cityLabel, textField: cityTextField)
+                activateTextField(label: stateLabel, textField: stateTextField)
+                activateTextField(label: zipLabel, textField: zipTextField)
+            default:
+                // Adult (classic) pass and VIP pass, no info needed
+                break
+            }
+        }
+        
+        else if vendorBtn.selected == true {
+            // Vendor requires date of Birth, first & last name, company, and date of visit info
+            activateTextField(label: dateOfBirthLabel, textField: dateOfBirthTextField)
+            activateTextField(label: firstNameLabel, textField: firstNameTextField)
+            activateTextField(label: lastNameLabel, textField: lastNameTextField)
+            activateTextField(label: companyLabel, textField: companyTextField)
+            activateTextField(label: dateOfVisitLabel, textField: dateOfVisitTextField)
+        }
+        
+        else {
+            // Employee, Manager, or contractor all require first & last Name, full address
+            activateTextField(label: firstNameLabel, textField: firstNameTextField)
+            activateTextField(label: lastNameLabel, textField: lastNameTextField)
+            activateTextField(label: streetLabel, textField: streetTextField)
+            activateTextField(label: cityLabel, textField: cityTextField)
+            activateTextField(label: stateLabel, textField: stateTextField)
+            activateTextField(label: zipLabel, textField: zipTextField)
+        }
+    }
+    
+    
+    func resetAllFirstLevelBtns() {
         let allBtns = [guestBtn, employeeBtn, managerBtn, contractorBtn, vendorBtn]
         for btn in allBtns {
             btn.selected = false
             btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 22.0)
+        }
+    }
+    
+    func resetAllSubBtns() {
+        let allBtns = [subBtn1, subBtn2, subBtn3, subBtn4, subBtn5]
+        for btn in allBtns {
+            btn.selected = false
+            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18.0)
         }
     }
     
@@ -187,6 +270,26 @@ class ViewController: UIViewController {
         subBtn4.hidden = false
         subBtn5.hidden = false
     }
-
+    
+    func resetFormFields() {
+        let allFormLabels = [dateOfBirthLabel, projectNumberLabel, firstNameLabel, lastNameLabel, companyLabel, dateOfVisitLabel, streetLabel, cityLabel, stateLabel, zipLabel]
+        let allTextFields = [dateOfBirthTextField, projectNumberTextField, firstNameTextField, lastNameTextField, companyTextField, dateOfVisitTextField, streetTextField, cityTextField, stateTextField, zipTextField]
+        for label in allFormLabels {
+            let disabledLabelColor = UIColor(red: 147/255.0, green: 146/255.0, blue: 148/255.0, alpha: 1.0)
+            label.textColor = disabledLabelColor
+        }
+        for textField in allTextFields {
+            let disabledTextFieldColor = UIColor(red: 219/255.0, green: 214/255.0, blue: 223/255.0, alpha: 1.0)
+            textField.enabled = false
+            textField.backgroundColor = disabledTextFieldColor
+        }
+    }
+    
+    func activateTextField(label label:UILabel, textField: UITextField) {
+        let activatedLabelColor = UIColor(red: 95/255.0, green: 93/255.0, blue: 97/255.0, alpha: 1.0)
+        label.textColor = activatedLabelColor
+        textField.enabled = true
+        textField.backgroundColor = UIColor.whiteColor()
+    }
 }
 
