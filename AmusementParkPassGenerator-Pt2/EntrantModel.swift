@@ -291,18 +291,19 @@ struct Pass {
 // MARK: Error Types
 
 enum RequiredInfoError: ErrorType {
-    case MissingFirstName
-    case MissingLastName
-    case MissingStreetAddress
-    case MissingCity
-    case MissingState
-    case MissingZipCode
-    case MissingDateOfBirth
-    case MissingCompanyInfo
-    case MissingDateOfVisit
-    case AgeRequirementNotMet
-    case DateFormatNotCorrect
+//    case MissingFirstName
+//    case MissingLastName
+//    case MissingStreetAddress
+//    case MissingCity
+//    case MissingState
+//    case MissingZipCode
+//    case MissingDateOfBirth
+//    case MissingCompanyInfo
+//    case MissingDateOfVisit
     case MissingRequiredInfo
+    case ChildAgeRequirementNotMet
+    case SeniorAgeRequirementNotMet
+    case DateFormatNotCorrect
 }
 
 

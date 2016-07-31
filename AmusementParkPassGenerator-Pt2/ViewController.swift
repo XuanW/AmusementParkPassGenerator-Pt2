@@ -447,7 +447,29 @@ class ViewController: UIViewController {
             
             return Pass(title: title, passType: passType, rideInfo: rideInfo, foodDiscountInfo: foodDiscountInfo, merchandiseDiscountInfo: merchandiseDiscountInfo, areaAccess: areaAccess, rideAccess: rideAccess, discountAccess: discountAccess, personalInfo: infoGathered)
             
-        } catch let error {
+        }
+        catch RequiredInfoError.MissingRequiredInfo {
+            let alertController = UIAlertController(title: "Missing Required Info", message: "Please fill in all required text fields.", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+            return nil
+        }
+        catch RequiredInfoError.ChildAgeRequirementNotMet {
+            let alertController = UIAlertController(title: "Age Requirement Not Met", message: "Applicant has to be younger than 5 to get free child pass.", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+            return nil
+        }
+        catch RequiredInfoError.SeniorAgeRequirementNotMet {
+            let alertController = UIAlertController(title: "Age Requirement Not Met", message: "Applicant has to be older than 60 to get senior pass.", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+            return nil
+        }
+        catch let error {
             print("Error: \(error)")
             return nil
         }
@@ -475,11 +497,11 @@ class ViewController: UIViewController {
             switch guestType {
             case .freeChild:
                 if !satisfyChildAgeRequirement(dateOfBirthTextField.text!) {
-                    throw RequiredInfoError.AgeRequirementNotMet
+                    throw RequiredInfoError.ChildAgeRequirementNotMet
                 }
             case .senior:
                 if !satisfySeniorAgeRequirement(dateOfBirthTextField.text!) {
-                    throw RequiredInfoError.AgeRequirementNotMet
+                    throw RequiredInfoError.SeniorAgeRequirementNotMet
                 }
             default: break
             }
