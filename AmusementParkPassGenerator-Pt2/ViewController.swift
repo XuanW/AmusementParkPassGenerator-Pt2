@@ -455,6 +455,20 @@ class ViewController: UIViewController {
             presentViewController(alertController, animated: true, completion: nil)
             return nil
         }
+        catch RequiredInfoError.DateFormatNotCorrect {
+            let alertController = UIAlertController(title: "Date Format Not Correct", message: "Please make sure the date is formatted as MM/DD/YYYY", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+            return nil
+        }
+        catch RequiredInfoError.ZipCodeFormatNotCorrect {
+            let alertController = UIAlertController(title: "Zip Code Format Not Correct", message: "Please make sure the zip code contains only numbers.", preferredStyle: .Alert)
+            let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+            alertController.addAction(action)
+            presentViewController(alertController, animated: true, completion: nil)
+            return nil
+        }
         catch RequiredInfoError.ChildAgeRequirementNotMet {
             let alertController = UIAlertController(title: "Age Requirement Not Met", message: "Applicant has to be younger than 5 to get free child pass.", preferredStyle: .Alert)
             let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
@@ -491,16 +505,26 @@ class ViewController: UIViewController {
             }
         }
         
-        // Verify child age requirement
+        // Verify date format
+        guard let dateOfBirthAsNSDate = convertStringToNSDate(dateOfBirthTextField.text!) else {
+            throw RequiredInfoError.DateFormatNotCorrect
+        }
+        
+        // Verify zipcode format
+        guard (Int(zipTextField.text!)) != nil else {
+            throw RequiredInfoError.ZipCodeFormatNotCorrect
+        }
+        
+        // Verify age requirements
         if entrantType is Guest {
             let guestType = entrantType as! Guest
             switch guestType {
             case .freeChild:
-                if !satisfyChildAgeRequirement(dateOfBirthTextField.text!) {
+                if !satisfyChildAgeRequirement(dateOfBirthAsNSDate) {
                     throw RequiredInfoError.ChildAgeRequirementNotMet
                 }
             case .senior:
-                if !satisfySeniorAgeRequirement(dateOfBirthTextField.text!) {
+                if !satisfySeniorAgeRequirement(dateOfBirthAsNSDate) {
                     throw RequiredInfoError.SeniorAgeRequirementNotMet
                 }
             default: break
@@ -509,7 +533,6 @@ class ViewController: UIViewController {
         
         return PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
     }
-
     
 }
 

@@ -304,6 +304,7 @@ enum RequiredInfoError: ErrorType {
     case ChildAgeRequirementNotMet
     case SeniorAgeRequirementNotMet
     case DateFormatNotCorrect
+    case ZipCodeFormatNotCorrect
 }
 
 
@@ -493,65 +494,59 @@ enum RequiredInfoError: ErrorType {
 
 // Helper Methods
 
-func convertStringToNSDate(dateOfBirthAsString: String) throws -> NSDate? {
+func convertStringToNSDate(dateOfBirthAsString: String) -> NSDate? {
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy"
     if let dateOfBirthAsNSDate: NSDate = dateFormatter.dateFromString(dateOfBirthAsString){
         return dateOfBirthAsNSDate
     } else {
-        throw RequiredInfoError.DateFormatNotCorrect
+        return nil
     }
 }
 
-func satisfyChildAgeRequirement(dateOfBirthAsString: String) -> Bool {
-    do {
+
+func satisfyChildAgeRequirement(dateOfBirth: NSDate) -> Bool {
         let currentDate = NSDate()
-        if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
-            let diffDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: currentDate, options: NSCalendarOptions.init(rawValue: 0))
-            if diffDateComponents.year < 5 {
-                return true
-            } else {
-                return false
-            }
+        let diffDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: currentDate, options: NSCalendarOptions.init(rawValue: 0))
+        if diffDateComponents.year < 5 {
+            return true
+        } else {
+            return false
         }
-    }
-    catch let error {
-        print("Error: \(error)")
-    }
-    return false
 }
 
-func satisfySeniorAgeRequirement(dateOfBirthAsString: String) -> Bool {
-    do {
-        let currentDate = NSDate()
-        if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
-            let diffDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: currentDate, options: NSCalendarOptions.init(rawValue: 0))
-            if diffDateComponents.year >= 60 {
-                return true
-            } else {
-                return false
-            }
-        }
+func satisfySeniorAgeRequirement(dateOfBirth: NSDate) -> Bool {
+    let currentDate = NSDate()
+    let diffDateComponents = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: currentDate, options: NSCalendarOptions.init(rawValue: 0))
+    if diffDateComponents.year >= 60 {
+        return true
+    } else {
+        return false
     }
-    catch let error {
-        print("Error: \(error)")
-    }
-    return false
 }
 
 
-func checkBirthday(dateOfBirthAsString: String) {
-    do {
-        let currentDate = NSDate()
-        if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
-            let birthdayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: dateOfBirth)
-            let currentDayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: currentDate)
-            if birthdayDateComponents.month == currentDayDateComponents.month && birthdayDateComponents.day == currentDayDateComponents.day {
-                print("Happy birthday! Hope you enjoy your time here!")
-            }
-        }
-    }
-    catch let error {
-        print("Error: \(error)")
+func checkBirthday(dateOfBirth: NSDate) {
+    let currentDate = NSDate()
+    let birthdayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: dateOfBirth)
+    let currentDayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: currentDate)
+    if birthdayDateComponents.month == currentDayDateComponents.month && birthdayDateComponents.day == currentDayDateComponents.day {
+    print("Happy birthday! Hope you enjoy your time here!")
     }
 }
+
+//func checkBirthday(dateOfBirthAsString: String) {
+//    do {
+//        let currentDate = NSDate()
+//        if let dateOfBirth = try convertStringToNSDate(dateOfBirthAsString) {
+//            let birthdayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: dateOfBirth)
+//            let currentDayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: currentDate)
+//            if birthdayDateComponents.month == currentDayDateComponents.month && birthdayDateComponents.day == currentDayDateComponents.day {
+//                print("Happy birthday! Hope you enjoy your time here!")
+//            }
+//        }
+//    }
+//    catch let error {
+//        print("Error: \(error)")
+//    }
+//}
