@@ -46,12 +46,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var zipLabel: UILabel!
     
-    
+    var entrantType: Entrant = Guest.freeChild
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
+        // Do any additional setup after loading the view, typically from a nib.
         
         // Plug data for pass generation testing
         
@@ -249,10 +249,80 @@ class ViewController: UIViewController {
         }
     }
     
-
+    
+    @IBAction func getEntrantTypeFromUI(sender: UIButton) {
+        if guestBtn.selected == true {
+            switch sender {
+            case subBtn1:
+                entrantType = Guest.freeChild
+            case subBtn2:
+                entrantType = Guest.classic
+            case subBtn3:
+                entrantType = Guest.senior
+            case subBtn4:
+                entrantType = Guest.seasonPass
+            default:
+                entrantType = Guest.vip
+            }
+        }
+        else if employeeBtn.selected == true {
+            switch sender {
+            case subBtn1:
+                entrantType = Employee.hourlyFood
+            case subBtn2:
+                entrantType = Employee.hourlyRide
+            default:
+                entrantType = Employee.hourlyMaintenance
+            }
+        }
+        else if managerBtn.selected == true {
+            entrantType = Manager.manager
+        }
+        else if contractorBtn.selected == true {
+            switch sender {
+            case subBtn1:
+                entrantType = Contractor.project1001
+            case subBtn2:
+                entrantType = Contractor.project1002
+            case subBtn3:
+                entrantType = Contractor.project1003
+            case subBtn4:
+                entrantType = Contractor.project2001
+            default:
+                entrantType = Contractor.project2002
+            }
+        }
+        else if vendorBtn.selected == true {
+            switch sender {
+            case subBtn1:
+                entrantType = Vendor.acme
+            case subBtn2:
+                entrantType = Vendor.orkin
+            case subBtn3:
+                entrantType = Vendor.fedex
+            default:
+                entrantType = Vendor.nwElectrical
+            }
+        }
+    }
+    
+    @IBAction func populateData(sender: AnyObject) {
+        let plugPerson = PersonalInfo(firstName: "David", lastName: "Sawyer", dateOfBirth: "03/05/1982", street: "3928 Mission St", city: "San Francisco", state: "CA", zip: "94102", company: "Fedex", dateOfVisit: "07/31/2016")
+        dateOfBirthTextField.text = plugPerson.dateOfBirth
+        firstNameTextField.text = plugPerson.firstName
+        lastNameTextField.text = plugPerson.lastName
+        companyTextField.text = plugPerson.company
+        dateOfVisitTextField.text = plugPerson.dateOfVisit
+        streetTextField.text = plugPerson.street
+        cityTextField.text = plugPerson.city
+        stateTextField.text = plugPerson.state
+        zipTextField.text = plugPerson.zip
+    }
+    
+    
     @IBAction func generatePassInUI(sender: AnyObject) {
         let personalInfo = PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
-        printPass(Guest.freeChild, person: personalInfo)
+        printPass(entrantType, person: personalInfo)
     }
     
     // Helper methods
@@ -300,5 +370,7 @@ class ViewController: UIViewController {
         textField.enabled = true
         textField.backgroundColor = UIColor.whiteColor()
     }
+
+    
 }
 

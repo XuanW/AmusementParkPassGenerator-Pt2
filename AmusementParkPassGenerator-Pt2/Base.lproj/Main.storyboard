@@ -123,6 +123,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="getEntrantTypeFromUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r4d-Hc-dld"/>
                                                     <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CFt-MF-Pmr"/>
                                                 </connections>
                                             </button>
@@ -136,6 +137,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="getEntrantTypeFromUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ueu-y2-DpQ"/>
                                                     <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IFB-bd-CZt"/>
                                                 </connections>
                                             </button>
@@ -149,6 +151,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="getEntrantTypeFromUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w09-CB-xlV"/>
                                                     <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KW6-Mr-T8p"/>
                                                 </connections>
                                             </button>
@@ -162,6 +165,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="getEntrantTypeFromUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="T8o-Zd-fDW"/>
                                                     <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="dSg-SM-QGu"/>
                                                 </connections>
                                             </button>
@@ -175,6 +179,7 @@
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
+                                                    <action selector="getEntrantTypeFromUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kXu-dh-PRM"/>
                                                     <action selector="setFormFields:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KDq-NU-bdj"/>
                                                 </connections>
                                             </button>
@@ -506,6 +511,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="populateData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0VO-0a-qz6"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
