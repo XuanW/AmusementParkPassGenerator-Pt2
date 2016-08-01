@@ -206,11 +206,11 @@ enum Contractor: String, Entrant {
     }
 }
 
-enum Vendor: Entrant {
-    case acme
-    case orkin
-    case fedex
-    case nwElectrical
+enum Vendor: String, Entrant {
+    case acme = "Acme"
+    case orkin = "Orkin"
+    case fedex = "Fedex"
+    case nwElectrical = "NW Electrical"
     
     func getAreaAccessDetail() -> AreaAccessType {
         var amusementAccess: Bool, kitchenAccess: Bool, rideControlAccess: Bool, maintenanceAccess: Bool, officeAccess: Bool
@@ -494,11 +494,21 @@ enum RequiredInfoError: ErrorType {
 
 // Helper Methods
 
-func convertStringToNSDate(dateOfBirthAsString: String) -> NSDate? {
+func convertStringToNSDate(dateAsString: String) -> NSDate? {
     let dateFormatter = NSDateFormatter()
     dateFormatter.dateFormat = "MM/dd/yyyy"
-    if let dateOfBirthAsNSDate: NSDate = dateFormatter.dateFromString(dateOfBirthAsString){
-        return dateOfBirthAsNSDate
+    if let dateAsNSDate: NSDate = dateFormatter.dateFromString(dateAsString){
+        return dateAsNSDate
+    } else {
+        return nil
+    }
+}
+
+func convertNSDateToString(dateAsNSDate: NSDate) -> String? {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy"
+    if let dateAsString: String = dateFormatter.stringFromDate(dateAsNSDate) {
+        return dateAsString
     } else {
         return nil
     }

@@ -247,6 +247,7 @@ class ViewController: UIViewController {
             activateTextField(label: stateLabel, textField: stateTextField)
             activateTextField(label: zipLabel, textField: zipTextField)
         }
+        prePopulateData()
     }
     
     
@@ -362,6 +363,7 @@ class ViewController: UIViewController {
             let disabledTextFieldColor = UIColor(red: 219/255.0, green: 214/255.0, blue: 223/255.0, alpha: 1.0)
             textField.enabled = false
             textField.backgroundColor = disabledTextFieldColor
+            textField.text = ""
         }
     }
     
@@ -532,6 +534,19 @@ class ViewController: UIViewController {
         }
         
         return PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
+    }
+    
+    func prePopulateData() {
+        // Prepopulate company name, and today's date as Date of Visit for venders, and project number for contractors.
+        if entrantType is Vendor {
+            let currentDate = NSDate()
+            dateOfVisitTextField.text = convertNSDateToString(currentDate)
+            let vendorType = entrantType as! Vendor
+            companyTextField.text = vendorType.rawValue
+        } else if entrantType is Contractor {
+            let contractorType = entrantType as! Contractor
+            projectNumberTextField.text = contractorType.rawValue
+        }
     }
     
 }
