@@ -171,8 +171,10 @@ class ViewController: UIViewController {
         resetAllFirstLevelBtns()
         resetAllSubBtns()
         resetFormFields()
+        hideAllSubBtns()
     }
     
+    // Display different sub entrant type based on the first level button that's selected
     @IBAction func setSubBtns(sender: UIButton) {
         resetAllFirstLevelBtns()
         resetAllSubBtns()
@@ -337,55 +339,12 @@ class ViewController: UIViewController {
     
     @IBAction func generatePassInUI(sender: AnyObject) {
         if let pass = generatePass(entrantType){
+            // If a pass is successfully generated, present the next screen to display the pass
+            self.performSegueWithIdentifier("displayPass", sender: nil)
+
             print(pass.title + "\n" + pass.passType + "\n" + pass.rideInfo + "\n" + pass.foodDiscountInfo + "\n" + pass.merchandiseDiscountInfo)
+            
         }
-    }
-    
-    // Helper methods
-    func resetAllFirstLevelBtns() {
-        let allBtns = [guestBtn, employeeBtn, managerBtn, contractorBtn, vendorBtn]
-        for btn in allBtns {
-            btn.selected = false
-            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 22.0)
-        }
-    }
-    
-    func resetAllSubBtns() {
-        let allBtns = [subBtn1, subBtn2, subBtn3, subBtn4, subBtn5]
-        for btn in allBtns {
-            btn.selected = false
-            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18.0)
-        }
-    }
-    
-    func displayAllSubBtns() {
-        subBtn1.hidden = false
-        subBtn2.hidden = false
-        subBtn3.hidden = false
-        subBtn4.hidden = false
-        subBtn5.hidden = false
-    }
-    
-    func resetFormFields() {
-        let allFormLabels = [dateOfBirthLabel, projectNumberLabel, firstNameLabel, lastNameLabel, companyLabel, dateOfVisitLabel, streetLabel, cityLabel, stateLabel, zipLabel]
-        let allTextFields = [dateOfBirthTextField, projectNumberTextField, firstNameTextField, lastNameTextField, companyTextField, dateOfVisitTextField, streetTextField, cityTextField, stateTextField, zipTextField]
-        for label in allFormLabels {
-            let disabledLabelColor = UIColor(red: 147/255.0, green: 146/255.0, blue: 148/255.0, alpha: 1.0)
-            label.textColor = disabledLabelColor
-        }
-        for textField in allTextFields {
-            let disabledTextFieldColor = UIColor(red: 219/255.0, green: 214/255.0, blue: 223/255.0, alpha: 1.0)
-            textField.enabled = false
-            textField.backgroundColor = disabledTextFieldColor
-            textField.text = ""
-        }
-    }
-    
-    func activateTextField(label label:UILabel, textField: UITextField) {
-        let activatedLabelColor = UIColor(red: 95/255.0, green: 93/255.0, blue: 97/255.0, alpha: 1.0)
-        label.textColor = activatedLabelColor
-        textField.enabled = true
-        textField.backgroundColor = UIColor.whiteColor()
     }
     
     func generatePass(entrantType: Entrant) -> Pass? {
@@ -401,7 +360,11 @@ class ViewController: UIViewController {
         do {
             let infoGathered = try gatherRequiredInfo()
             if let firstName = infoGathered.firstName, lastName = infoGathered.lastName {
-                title = "\(firstName) \(lastName)"
+                if firstName != "" && lastName != "" {
+                    title = "\(firstName) \(lastName)"
+                } else {
+                    title = "Amusement Park Pass"
+                }
             } else {
                 title = "Amusement Park Pass"
             }
@@ -542,7 +505,7 @@ class ViewController: UIViewController {
                 default: break
                 }
             }
-
+            
         }
         
         if dateOfVisitTextField.enabled == true {
@@ -573,6 +536,63 @@ class ViewController: UIViewController {
             projectNumberTextField.text = contractorType.rawValue
         }
     }
+    
+    // Helper methods
+    func resetAllFirstLevelBtns() {
+        let allBtns = [guestBtn, employeeBtn, managerBtn, contractorBtn, vendorBtn]
+        for btn in allBtns {
+            btn.selected = false
+            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 22.0)
+        }
+    }
+    
+    func resetAllSubBtns() {
+        let allBtns = [subBtn1, subBtn2, subBtn3, subBtn4, subBtn5]
+        for btn in allBtns {
+            btn.selected = false
+            btn.titleLabel?.font = UIFont(name: "HelveticaNeue", size: 18.0)
+        }
+    }
+    
+    func displayAllSubBtns() {
+        subBtn1.hidden = false
+        subBtn2.hidden = false
+        subBtn3.hidden = false
+        subBtn4.hidden = false
+        subBtn5.hidden = false
+    }
+    
+    func hideAllSubBtns() {
+        subBtn1.hidden = true
+        subBtn2.hidden = true
+        subBtn3.hidden = true
+        subBtn4.hidden = true
+        subBtn5.hidden = true
+    }
+    
+    func resetFormFields() {
+        let allFormLabels = [dateOfBirthLabel, projectNumberLabel, firstNameLabel, lastNameLabel, companyLabel, dateOfVisitLabel, streetLabel, cityLabel, stateLabel, zipLabel]
+        let allTextFields = [dateOfBirthTextField, projectNumberTextField, firstNameTextField, lastNameTextField, companyTextField, dateOfVisitTextField, streetTextField, cityTextField, stateTextField, zipTextField]
+        for label in allFormLabels {
+            let disabledLabelColor = UIColor(red: 147/255.0, green: 146/255.0, blue: 148/255.0, alpha: 1.0)
+            label.textColor = disabledLabelColor
+        }
+        for textField in allTextFields {
+            let disabledTextFieldColor = UIColor(red: 219/255.0, green: 214/255.0, blue: 223/255.0, alpha: 1.0)
+            textField.enabled = false
+            textField.backgroundColor = disabledTextFieldColor
+            textField.text = ""
+        }
+    }
+    
+    func activateTextField(label label:UILabel, textField: UITextField) {
+        let activatedLabelColor = UIColor(red: 95/255.0, green: 93/255.0, blue: 97/255.0, alpha: 1.0)
+        label.textColor = activatedLabelColor
+        textField.enabled = true
+        textField.backgroundColor = UIColor.whiteColor()
+    }
+    
+
     
 }
 
