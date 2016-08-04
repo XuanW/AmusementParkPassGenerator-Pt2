@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		103521BA1D52F60600BA87C2 /* PassController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103521B91D52F60600BA87C2 /* PassController.swift */; };
 		10BFA24C1D418B4800C1CE37 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BFA24B1D418B4800C1CE37 /* AppDelegate.swift */; };
 		10BFA24E1D418B4800C1CE37 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BFA24D1D418B4800C1CE37 /* ViewController.swift */; };
 		10BFA2511D418B4800C1CE37 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BFA24F1D418B4800C1CE37 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		103521B91D52F60600BA87C2 /* PassController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassController.swift; sourceTree = "<group>"; };
 		10BFA2481D418B4800C1CE37 /* AmusementParkPassGenerator-Pt2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AmusementParkPassGenerator-Pt2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10BFA24B1D418B4800C1CE37 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10BFA24D1D418B4800C1CE37 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 			children = (
 				10BFA24B1D418B4800C1CE37 /* AppDelegate.swift */,
 				10BFA24D1D418B4800C1CE37 /* ViewController.swift */,
+				103521B91D52F60600BA87C2 /* PassController.swift */,
 				10BFA25D1D418B7900C1CE37 /* EntrantModel.swift */,
 				10BFA25F1D418BA500C1CE37 /* SwiperMethod.swift */,
 				10BFA24F1D418B4800C1CE37 /* Main.storyboard */,
@@ -149,6 +152,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				103521BA1D52F60600BA87C2 /* PassController.swift in Sources */,
 				10BFA2601D418BA500C1CE37 /* SwiperMethod.swift in Sources */,
 				10BFA24E1D418B4800C1CE37 /* ViewController.swift in Sources */,
 				10BFA24C1D418B4800C1CE37 /* AppDelegate.swift in Sources */,
@@ -304,6 +308,7 @@
 				10BFA25C1D418B4800C1CE37 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

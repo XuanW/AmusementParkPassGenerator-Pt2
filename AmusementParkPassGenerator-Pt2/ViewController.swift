@@ -157,7 +157,13 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "displayPass" {
+            if let passController = segue.destinationViewController as? PassController {
+                passController.pass = generatePass(entrantType)
+            }
+        }
+    }
     
     @IBAction func setSubBtns(sender: UIButton) {
         resetAllFirstLevelBtns()
@@ -308,12 +314,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func populateData(sender: AnyObject) {
-        let plugPerson = PersonalInfo(firstName: "David", lastName: "Sawyer", dateOfBirth: "03/05/1982", street: "3928 Mission St", city: "San Francisco", state: "CA", zip: "94102", company: "Fedex", dateOfVisit: "07/31/2016")
+        let plugPerson = PersonalInfo(firstName: "David", lastName: "Sawyer", dateOfBirth: "03/05/1982", street: "3928 Mission St", city: "San Francisco", state: "CA", zip: "94102", company: nil, dateOfVisit: nil)
         dateOfBirthTextField.text = plugPerson.dateOfBirth
         firstNameTextField.text = plugPerson.firstName
         lastNameTextField.text = plugPerson.lastName
-        companyTextField.text = plugPerson.company
-        dateOfVisitTextField.text = plugPerson.dateOfVisit
+        //companyTextField.text = plugPerson.company
+        //dateOfVisitTextField.text = plugPerson.dateOfVisit
         streetTextField.text = plugPerson.street
         cityTextField.text = plugPerson.city
         stateTextField.text = plugPerson.state

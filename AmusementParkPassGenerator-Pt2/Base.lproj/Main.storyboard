@@ -498,6 +498,7 @@
                                         </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="generatePassInUI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0Ym-fw-dnn"/>
+                                            <segue destination="pab-4J-bFm" kind="presentation" identifier="displayPass" id="xBb-Nv-30y"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjU-HH-0MM">
@@ -607,10 +608,10 @@
             </objects>
             <point key="canvasLocation" x="700" y="478"/>
         </scene>
-        <!--View Controller-->
+        <!--Pass Controller-->
         <scene sceneID="n0s-iH-iFC">
             <objects>
-                <viewController id="pab-4J-bFm" sceneMemberID="viewController">
+                <viewController id="pab-4J-bFm" customClass="PassController" customModule="AmusementParkPassGenerator_Pt2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ly9-km-dQU"/>
                         <viewControllerLayoutGuide type="bottom" id="eco-hX-jxq"/>
@@ -715,8 +716,8 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Y3-Ve-bmZ" userLabel="Merch Discount">
-                                                <rect key="frame" x="0.0" y="68" width="211" height="22"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0Y3-Ve-bmZ" userLabel="Merch Discount">
+                                                <rect key="frame" x="0.0" y="68" width="239" height="22"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c66-nM-3ud">
                                                         <rect key="frame" x="0.0" y="0.0" width="8" height="22"/>
@@ -724,8 +725,8 @@
                                                         <color key="textColor" red="0.57647058819999997" green="0.57254901960000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20% Merchant Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-bx-K2Q">
-                                                        <rect key="frame" x="18" y="0.0" width="193" height="22"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="20% Merchandise Discount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mzo-bx-K2Q">
+                                                        <rect key="frame" x="18" y="0.0" width="221" height="22"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <color key="textColor" red="0.57647058819999997" green="0.57254901960000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -963,6 +964,13 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
+                    <connections>
+                        <outlet property="foodDiscountLabel" destination="rAT-Gi-Y05" id="nBu-gT-jTA"/>
+                        <outlet property="merchandiseDiscountLabel" destination="Mzo-bx-K2Q" id="d31-Rr-Umn"/>
+                        <outlet property="passTitleLabel" destination="hRH-D0-RJN" id="cw5-ba-N33"/>
+                        <outlet property="passTypeLabel" destination="8O4-KT-m58" id="SqC-nA-Fgt"/>
+                        <outlet property="rideInfoLabel" destination="UtG-fh-oAI" id="Vwa-9B-fx0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxe-eW-UpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
