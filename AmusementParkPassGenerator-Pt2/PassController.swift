@@ -19,10 +19,12 @@ class PassController: UIViewController {
     @IBOutlet weak var areaAccessStackView: UIStackView!
     @IBOutlet weak var testResultBG: UIView!
     @IBOutlet weak var testResultLabel: UILabel!
+    @IBOutlet weak var birthdayMessageLabel: UILabel!
     
     
     var sound: SystemSoundID = 0
     var pass:Pass? = nil
+    var isBirthdayToday: Bool = false
     
     
     override func viewDidLoad() {
@@ -31,6 +33,7 @@ class PassController: UIViewController {
         // Do any additional setup after loading the view.
         displayPass()
         areaAccessStackView.hidden = true
+        birthdayMessageLabel.hidden = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,6 +53,7 @@ class PassController: UIViewController {
 
     @IBAction func areaAccessSwiper(sender: UIButton) {
         areaAccessStackView.hidden = false
+        birthdayMessageLabel.hidden = true
         testResultLabel.text = "Test Result"
         resetTestResultColor()
     }
@@ -156,6 +160,11 @@ class PassController: UIViewController {
         }
     }
     
+    @IBAction func checkBirthday(sender: UIButton) {
+        displayBirthdayMessage(isBirthdayToday)
+    }
+    
+    
     // Helper methods
     
     func updateTestResultColor(accessAllowed: Bool) {
@@ -170,6 +179,15 @@ class PassController: UIViewController {
     func resetTestResultColor() {
         testResultBG.backgroundColor = UIColor(red: 203/255.0, green: 198/255.0, blue: 207/255.0, alpha: 1.0)
         testResultLabel.textColor = UIColor(red: 121/255.0, green: 117/255.0, blue: 124/255.0, alpha: 1.0)
+    }
+    
+    func displayBirthdayMessage(isBirthdayToday: Bool) {
+        if isBirthdayToday {
+            birthdayMessageLabel.hidden = false
+            birthdayMessageLabel.textColor = UIColor.blackColor()
+        } else {
+            birthdayMessageLabel.hidden = true
+        }
     }
     
     func playSound(accessAllowed: Bool) {

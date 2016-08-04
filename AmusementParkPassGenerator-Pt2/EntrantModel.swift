@@ -536,12 +536,14 @@ func satisfySeniorAgeRequirement(dateOfBirth: NSDate) -> Bool {
 }
 
 
-func checkBirthday(dateOfBirth: NSDate) {
+func checkBirthday(dateOfBirth: NSDate) -> Bool {
     let currentDate = NSDate()
     let birthdayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: dateOfBirth)
     let currentDayDateComponents = NSCalendar.currentCalendar().components([NSCalendarUnit.Month, NSCalendarUnit.Day], fromDate: currentDate)
     if birthdayDateComponents.month == currentDayDateComponents.month && birthdayDateComponents.day == currentDayDateComponents.day {
-    print("Happy birthday! Hope you enjoy your time here!")
+    return true
+    } else {
+        return false
     }
 }
 

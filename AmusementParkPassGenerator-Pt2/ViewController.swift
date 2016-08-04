@@ -46,7 +46,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var stateLabel: UILabel!
     @IBOutlet weak var zipLabel: UILabel!
     
-    var entrantType: Entrant = Guest.freeChild
+    var entrantType: Entrant = Guest.classic
+    var isBirthdayToday: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class ViewController: UIViewController {
         if segue.identifier == "displayPass" {
             if let passController = segue.destinationViewController as? PassController {
                 passController.pass = generatePass(entrantType)
+                passController.isBirthdayToday = isBirthdayToday
             }
         }
     }
@@ -405,6 +407,8 @@ class ViewController: UIViewController {
             guard let dateOfBirthAsNSDate = convertStringToNSDate(dateOfBirthTextField.text!) else {
                 throw RequiredInfoError.DateFormatNotCorrect
             }
+            
+            isBirthdayToday = checkBirthday(dateOfBirthAsNSDate)
             
             // Verify age requirements
             if entrantType is Guest {

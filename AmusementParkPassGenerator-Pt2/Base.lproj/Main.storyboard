@@ -778,7 +778,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C2P-zq-Sky" userLabel="Swiper Methods">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C2P-zq-Sky" userLabel="Swiper Methods">
                                 <rect key="frame" x="20" y="610" width="728" height="254"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-Yf-CEG" userLabel="Swiper Btns">
@@ -807,6 +807,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="MYa-Zq-o93"/>
                                                     <action selector="rideAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="uIX-fC-1HX"/>
                                                 </connections>
                                             </button>
@@ -820,6 +821,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="Adz-Ky-Myv"/>
                                                     <action selector="discountSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Pxn-16-HcE"/>
                                                 </connections>
                                             </button>
@@ -828,10 +830,10 @@
                                             <constraint firstAttribute="height" constant="60" id="elB-41-WqW"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IfG-Fm-hna" userLabel="Areas">
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IfG-Fm-hna" userLabel="Areas">
                                         <rect key="frame" x="0.0" y="80" width="728" height="34"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-J1-NKZ">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-J1-NKZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="130" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -850,9 +852,10 @@
                                                 </variation>
                                                 <connections>
                                                     <action selector="amusementAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="KOD-Xe-JKk"/>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="rMZ-34-q91"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm7-mG-ZCl">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm7-mG-ZCl">
                                                 <rect key="frame" x="150" y="0.0" width="129" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -862,10 +865,11 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="9p3-d9-1Au"/>
                                                     <action selector="kitchenAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="FG9-lR-EH0"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-MR-dXi">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-MR-dXi">
                                                 <rect key="frame" x="299" y="0.0" width="130" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -875,10 +879,11 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="LUV-3Q-PO5"/>
                                                     <action selector="rideAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Pab-6h-4YZ"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-nw-zTo">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-nw-zTo">
                                                 <rect key="frame" x="449" y="0.0" width="129" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -890,10 +895,11 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="njK-UQ-YQs"/>
                                                     <action selector="maintenanceAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Hv3-GE-1F2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nml-cE-DMY">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nml-cE-DMY">
                                                 <rect key="frame" x="598" y="0.0" width="130" height="34"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -903,6 +909,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
+                                                    <action selector="checkBirthday:" destination="pab-4J-bFm" eventType="touchUpInside" id="Kre-yF-ZhJ"/>
                                                     <action selector="officeAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="egp-Wb-1ds"/>
                                                 </connections>
                                             </button>
@@ -916,30 +923,48 @@
                                             </mask>
                                         </variation>
                                     </stackView>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-rC-gOW" userLabel="Test Result BG">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-rC-gOW" userLabel="Test Result BG">
                                         <rect key="frame" x="0.0" y="134" width="728" height="120"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31A-Ac-RKN">
-                                                <rect key="frame" x="20" y="48" width="688" height="24"/>
-                                                <attributedString key="attributedText">
-                                                    <fragment content="Test Result">
-                                                        <attributes>
-                                                            <color key="NSColor" red="0.47450980392156861" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
-                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
-                                                        </attributes>
-                                                    </fragment>
-                                                </attributedString>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gBW-xC-BuH">
+                                                <rect key="frame" x="20" y="31" width="688" height="58"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxU-J3-inq">
+                                                        <rect key="frame" x="0.0" y="0.0" width="688" height="24"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Happy birthday!">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.47450980392156861" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31A-Ac-RKN">
+                                                        <rect key="frame" x="0.0" y="34" width="688" height="24"/>
+                                                        <attributedString key="attributedText">
+                                                            <fragment content="Test Result">
+                                                                <attributes>
+                                                                    <color key="NSColor" red="0.47450980392156861" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                                </attributes>
+                                                            </fragment>
+                                                        </attributedString>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.79607843137254897" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
-                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="centerX" secondItem="Juh-rC-gOW" secondAttribute="centerX" id="XxC-NU-tQN"/>
+                                            <constraint firstItem="gBW-xC-BuH" firstAttribute="centerY" secondItem="Juh-rC-gOW" secondAttribute="centerY" id="NEE-jH-rWp"/>
                                             <constraint firstAttribute="height" constant="120" id="bOl-MC-ihJ"/>
-                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="leading" secondItem="Juh-rC-gOW" secondAttribute="leading" constant="20" id="dKV-f8-QqB"/>
-                                            <constraint firstAttribute="trailing" secondItem="31A-Ac-RKN" secondAttribute="trailing" constant="20" id="eWC-GT-9tR"/>
-                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="centerY" secondItem="Juh-rC-gOW" secondAttribute="centerY" id="ldb-xR-4UN"/>
+                                            <constraint firstItem="gBW-xC-BuH" firstAttribute="leading" secondItem="Juh-rC-gOW" secondAttribute="leading" constant="20" id="pqh-ve-O0C"/>
+                                            <constraint firstItem="gBW-xC-BuH" firstAttribute="centerX" secondItem="Juh-rC-gOW" secondAttribute="centerX" id="r7l-uw-4BT"/>
+                                            <constraint firstAttribute="trailing" secondItem="gBW-xC-BuH" secondAttribute="trailing" constant="20" id="z8T-Vw-Kz6"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
@@ -997,6 +1022,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
                         <outlet property="areaAccessStackView" destination="IfG-Fm-hna" id="9wY-Rt-YC9"/>
+                        <outlet property="birthdayMessageLabel" destination="pxU-J3-inq" id="VeY-oO-OLS"/>
                         <outlet property="foodDiscountLabel" destination="rAT-Gi-Y05" id="nBu-gT-jTA"/>
                         <outlet property="merchandiseDiscountLabel" destination="Mzo-bx-K2Q" id="d31-Rr-Umn"/>
                         <outlet property="passTitleLabel" destination="hRH-D0-RJN" id="cw5-ba-N33"/>
