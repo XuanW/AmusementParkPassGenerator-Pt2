@@ -402,12 +402,14 @@ class ViewController: UIViewController {
             }
         }
         
-        // Verify date format
+        
         if dateOfBirthTextField.enabled == true {
+            // Verify date format
             guard let dateOfBirthAsNSDate = convertStringToNSDate(dateOfBirthTextField.text!) else {
                 throw RequiredInfoError.DateFormatNotCorrect
             }
             
+            // Check birthday
             isBirthdayToday = checkBirthday(dateOfBirthAsNSDate)
             
             // Verify age requirements
@@ -426,6 +428,8 @@ class ViewController: UIViewController {
                 }
             }
             
+        } else {
+            isBirthdayToday = false
         }
         
         if dateOfVisitTextField.enabled == true {
@@ -444,8 +448,8 @@ class ViewController: UIViewController {
         return PersonalInfo(firstName: firstNameTextField.text, lastName: lastNameTextField.text, dateOfBirth: dateOfBirthTextField.text, street: streetTextField.text, city: cityTextField.text, state: stateTextField.text, zip: zipTextField.text, company: companyTextField.text, dateOfVisit: dateOfVisitTextField.text)
     }
     
+    // Prepopulate company name, and today's date as Date of Visit for venders, and project number for contractors.
     func prePopulateData() {
-        // Prepopulate company name, and today's date as Date of Visit for venders, and project number for contractors.
         if entrantType is Vendor {
             let currentDate = NSDate()
             dateOfVisitTextField.text = convertNSDateToString(currentDate)

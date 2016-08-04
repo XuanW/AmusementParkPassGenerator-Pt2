@@ -14,7 +14,6 @@
 		10BFA2531D418B4800C1CE37 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10BFA2521D418B4800C1CE37 /* Assets.xcassets */; };
 		10BFA2561D418B4800C1CE37 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10BFA2541D418B4800C1CE37 /* LaunchScreen.storyboard */; };
 		10BFA25E1D418B7900C1CE37 /* EntrantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BFA25D1D418B7900C1CE37 /* EntrantModel.swift */; };
-		10BFA2601D418BA500C1CE37 /* SwiperMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BFA25F1D418BA500C1CE37 /* SwiperMethod.swift */; };
 		10BFA2631D418C1A00C1CE37 /* AccessDenied.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10BFA2611D418C1A00C1CE37 /* AccessDenied.wav */; };
 		10BFA2641D418C1A00C1CE37 /* AccessGranted.wav in Resources */ = {isa = PBXBuildFile; fileRef = 10BFA2621D418C1A00C1CE37 /* AccessGranted.wav */; };
 /* End PBXBuildFile section */
@@ -29,7 +28,6 @@
 		10BFA2551D418B4800C1CE37 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10BFA2571D418B4800C1CE37 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		10BFA25D1D418B7900C1CE37 /* EntrantModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntrantModel.swift; sourceTree = "<group>"; };
-		10BFA25F1D418BA500C1CE37 /* SwiperMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiperMethod.swift; sourceTree = "<group>"; };
 		10BFA2611D418C1A00C1CE37 /* AccessDenied.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessDenied.wav; sourceTree = "<group>"; };
 		10BFA2621D418C1A00C1CE37 /* AccessGranted.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = AccessGranted.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -68,7 +66,6 @@
 				10BFA24D1D418B4800C1CE37 /* ViewController.swift */,
 				103521B91D52F60600BA87C2 /* PassController.swift */,
 				10BFA25D1D418B7900C1CE37 /* EntrantModel.swift */,
-				10BFA25F1D418BA500C1CE37 /* SwiperMethod.swift */,
 				10BFA24F1D418B4800C1CE37 /* Main.storyboard */,
 				10BFA2611D418C1A00C1CE37 /* AccessDenied.wav */,
 				10BFA2621D418C1A00C1CE37 /* AccessGranted.wav */,
@@ -153,7 +150,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				103521BA1D52F60600BA87C2 /* PassController.swift in Sources */,
-				10BFA2601D418BA500C1CE37 /* SwiperMethod.swift in Sources */,
 				10BFA24E1D418B4800C1CE37 /* ViewController.swift in Sources */,
 				10BFA24C1D418B4800C1CE37 /* AppDelegate.swift in Sources */,
 				10BFA25E1D418B7900C1CE37 /* EntrantModel.swift in Sources */,
