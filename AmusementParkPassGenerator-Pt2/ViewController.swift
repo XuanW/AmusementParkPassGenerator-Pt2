@@ -156,13 +156,21 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    // Passing generated pass to next screen to display the pass
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "displayPass" {
             if let passController = segue.destinationViewController as? PassController {
                 passController.pass = generatePass(entrantType)
             }
         }
+    }
+    
+    // Unwind segue to bring back main view from pass screen
+    @IBAction func backToMainViewController(segue:UIStoryboardSegue) {
+        resetAllFirstLevelBtns()
+        resetAllSubBtns()
+        resetFormFields()
     }
     
     @IBAction func setSubBtns(sender: UIButton) {
@@ -514,28 +522,39 @@ class ViewController: UIViewController {
         }
         
         // Verify date format
-        guard let dateOfBirthAsNSDate = convertStringToNSDate(dateOfBirthTextField.text!) else {
-            throw RequiredInfoError.DateFormatNotCorrect
+        if dateOfBirthTextField.enabled == true {
+            guard let dateOfBirthAsNSDate = convertStringToNSDate(dateOfBirthTextField.text!) else {
+                throw RequiredInfoError.DateFormatNotCorrect
+            }
+            
+            // Verify age requirements
+            if entrantType is Guest {
+                let guestType = entrantType as! Guest
+                switch guestType {
+                case .freeChild:
+                    if !satisfyChildAgeRequirement(dateOfBirthAsNSDate) {
+                        throw RequiredInfoError.ChildAgeRequirementNotMet
+                    }
+                case .senior:
+                    if !satisfySeniorAgeRequirement(dateOfBirthAsNSDate) {
+                        throw RequiredInfoError.SeniorAgeRequirementNotMet
+                    }
+                default: break
+                }
+            }
+
+        }
+        
+        if dateOfVisitTextField.enabled == true {
+            guard (convertStringToNSDate(dateOfVisitTextField.text!)) != nil else {
+                throw RequiredInfoError.DateFormatNotCorrect
+            }
         }
         
         // Verify zipcode format
-        guard (Int(zipTextField.text!)) != nil else {
-            throw RequiredInfoError.ZipCodeFormatNotCorrect
-        }
-        
-        // Verify age requirements
-        if entrantType is Guest {
-            let guestType = entrantType as! Guest
-            switch guestType {
-            case .freeChild:
-                if !satisfyChildAgeRequirement(dateOfBirthAsNSDate) {
-                    throw RequiredInfoError.ChildAgeRequirementNotMet
-                }
-            case .senior:
-                if !satisfySeniorAgeRequirement(dateOfBirthAsNSDate) {
-                    throw RequiredInfoError.SeniorAgeRequirementNotMet
-                }
-            default: break
+        if zipTextField.enabled == true {
+            guard (Int(zipTextField.text!)) != nil else {
+                throw RequiredInfoError.ZipCodeFormatNotCorrect
             }
         }
         
