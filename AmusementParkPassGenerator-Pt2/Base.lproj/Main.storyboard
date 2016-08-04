@@ -778,141 +778,175 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-Yf-CEG" userLabel="Swiper Btns">
-                                <rect key="frame" x="20" y="610" width="728" height="60"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="C2P-zq-Sky" userLabel="Swiper Methods">
+                                <rect key="frame" x="20" y="610" width="728" height="254"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFx-6U-P2X">
-                                        <rect key="frame" x="0.0" y="0.0" width="223" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Area Access">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3bz-Yf-CEG" userLabel="Swiper Btns">
+                                        <rect key="frame" x="0.0" y="0.0" width="728" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFx-6U-P2X">
+                                                <rect key="frame" x="0.0" y="0.0" width="223" height="60"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Area Access"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="areaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="drm-Or-jFe"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mo6-Lp-fzU">
+                                                <rect key="frame" x="253" y="0.0" width="222" height="60"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Ride Access"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="uIX-fC-1HX"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiY-By-Bgr">
+                                                <rect key="frame" x="505" y="0.0" width="223" height="60"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Discount Access"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="discountSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Pxn-16-HcE"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="elB-41-WqW"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IfG-Fm-hna" userLabel="Areas">
+                                        <rect key="frame" x="0.0" y="80" width="728" height="34"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-J1-NKZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="130" height="34"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="lHb-GE-08M"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Amusement"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="default">
+                                                    <mask key="constraints">
+                                                        <exclude reference="lHb-GE-08M"/>
+                                                    </mask>
+                                                </variation>
+                                                <connections>
+                                                    <action selector="amusementAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="KOD-Xe-JKk"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm7-mG-ZCl">
+                                                <rect key="frame" x="150" y="0.0" width="129" height="34"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Kitchen"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="kitchenAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="FG9-lR-EH0"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-MR-dXi">
+                                                <rect key="frame" x="299" y="0.0" width="130" height="34"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Ride Control"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="rideAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Pab-6h-4YZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-nw-zTo">
+                                                <rect key="frame" x="449" y="0.0" width="129" height="34"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Maintenance">
+                                                    <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="maintenanceAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="Hv3-GE-1F2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nml-cE-DMY">
+                                                <rect key="frame" x="598" y="0.0" width="130" height="34"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Office"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="officeAreaAccessSwiper:" destination="pab-4J-bFm" eventType="touchUpInside" id="egp-Wb-1ds"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="eIq-sk-05H"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="eIq-sk-05H"/>
+                                            </mask>
+                                        </variation>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-rC-gOW" userLabel="Test Result BG">
+                                        <rect key="frame" x="0.0" y="134" width="728" height="120"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31A-Ac-RKN">
+                                                <rect key="frame" x="20" y="48" width="688" height="24"/>
+                                                <attributedString key="attributedText">
+                                                    <fragment content="Test Result">
+                                                        <attributes>
+                                                            <color key="NSColor" red="0.47450980392156861" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <font key="NSFont" size="20" name="HelveticaNeue"/>
+                                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="5" tighteningFactorForTruncation="0.0"/>
+                                                        </attributes>
+                                                    </fragment>
+                                                </attributedString>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.79607843137254897" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="centerX" secondItem="Juh-rC-gOW" secondAttribute="centerX" id="XxC-NU-tQN"/>
+                                            <constraint firstAttribute="height" constant="120" id="bOl-MC-ihJ"/>
+                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="leading" secondItem="Juh-rC-gOW" secondAttribute="leading" constant="20" id="dKV-f8-QqB"/>
+                                            <constraint firstAttribute="trailing" secondItem="31A-Ac-RKN" secondAttribute="trailing" constant="20" id="eWC-GT-9tR"/>
+                                            <constraint firstItem="31A-Ac-RKN" firstAttribute="centerY" secondItem="Juh-rC-gOW" secondAttribute="centerY" id="ldb-xR-4UN"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
                                         </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mo6-Lp-fzU">
-                                        <rect key="frame" x="253" y="0.0" width="222" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Ride Access">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uiY-By-Bgr">
-                                        <rect key="frame" x="505" y="0.0" width="223" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Discount Access">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
+                                    </view>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="elB-41-WqW"/>
-                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="IfG-Fm-hna" userLabel="Areas">
-                                <rect key="frame" x="20" y="690" width="728" height="60"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m4i-J1-NKZ">
-                                        <rect key="frame" x="0.0" y="0.0" width="130" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Amusement">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm7-mG-ZCl">
-                                        <rect key="frame" x="150" y="0.0" width="129" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Kitchen">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RUS-MR-dXi">
-                                        <rect key="frame" x="299" y="0.0" width="130" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Ride Control">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fn2-nw-zTo">
-                                        <rect key="frame" x="449" y="0.0" width="129" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Maintenance">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nml-cE-DMY">
-                                        <rect key="frame" x="598" y="0.0" width="130" height="60"/>
-                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                        <color key="tintColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Office">
-                                            <color key="titleColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="eIq-sk-05H"/>
-                                    <constraint firstAttribute="height" constant="60" id="yaV-Pi-870"/>
-                                </constraints>
-                            </stackView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Juh-rC-gOW" userLabel="Test Result BG">
-                                <rect key="frame" x="20" y="770" width="728" height="120"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test Result" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31A-Ac-RKN">
-                                        <rect key="frame" x="20" y="48" width="688" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <color key="textColor" red="0.47450980392156861" green="0.45882352941176469" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" red="0.79607843137254897" green="0.77647058823529413" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="31A-Ac-RKN" firstAttribute="centerX" secondItem="Juh-rC-gOW" secondAttribute="centerX" id="XxC-NU-tQN"/>
-                                    <constraint firstAttribute="height" constant="120" id="bOl-MC-ihJ"/>
-                                    <constraint firstItem="31A-Ac-RKN" firstAttribute="leading" secondItem="Juh-rC-gOW" secondAttribute="leading" constant="20" id="dKV-f8-QqB"/>
-                                    <constraint firstAttribute="trailing" secondItem="31A-Ac-RKN" secondAttribute="trailing" constant="20" id="eWC-GT-9tR"/>
-                                    <constraint firstItem="31A-Ac-RKN" firstAttribute="centerY" secondItem="Juh-rC-gOW" secondAttribute="centerY" id="ldb-xR-4UN"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="4"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Keq-lR-8Mf">
                                 <rect key="frame" x="192" y="924" width="384" height="60"/>
                                 <color key="backgroundColor" red="0.34509803919999998" green="0.58431372550000005" blue="0.56078431370000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -941,26 +975,20 @@
                         <constraints>
                             <constraint firstItem="eco-hX-jxq" firstAttribute="top" secondItem="Keq-lR-8Mf" secondAttribute="bottom" constant="40" id="1vb-i3-VGX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Viz-jV-H5N" secondAttribute="trailing" id="21x-Xv-dwr"/>
-                            <constraint firstItem="Juh-rC-gOW" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="3xR-Ly-3TK"/>
                             <constraint firstItem="C9D-vf-bZx" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="6N4-eQ-tuG"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="IfG-Fm-hna" secondAttribute="trailing" id="BWa-XB-M9w"/>
-                            <constraint firstItem="3bz-Yf-CEG" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="EFO-cs-CQZ"/>
                             <constraint firstItem="qUd-oj-FWM" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="HQO-AP-V8U"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3bz-Yf-CEG" secondAttribute="trailing" id="Je0-7J-Nx8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZXb-Yo-ln6" secondAttribute="trailing" constant="-20" id="JnG-Lg-pkJ"/>
                             <constraint firstItem="ZXb-Yo-ln6" firstAttribute="top" secondItem="Ly9-km-dQU" secondAttribute="bottom" id="URh-XZ-TIZ"/>
                             <constraint firstItem="Keq-lR-8Mf" firstAttribute="centerX" secondItem="IHd-ZX-evp" secondAttribute="centerX" id="UgD-7r-uyL"/>
-                            <constraint firstItem="IfG-Fm-hna" firstAttribute="top" secondItem="3bz-Yf-CEG" secondAttribute="bottom" constant="20" id="Wrm-0B-6Y8"/>
-                            <constraint firstItem="3bz-Yf-CEG" firstAttribute="top" secondItem="qUd-oj-FWM" secondAttribute="bottom" constant="24" id="XFZ-wJ-hIq"/>
                             <constraint firstItem="C9D-vf-bZx" firstAttribute="trailing" secondItem="IHd-ZX-evp" secondAttribute="trailingMargin" id="dee-HI-eve"/>
-                            <constraint firstItem="IfG-Fm-hna" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="eRf-Yu-4hT"/>
+                            <constraint firstItem="C2P-zq-Sky" firstAttribute="top" secondItem="qUd-oj-FWM" secondAttribute="bottom" constant="24" id="dgr-lv-Q7N"/>
                             <constraint firstItem="qUd-oj-FWM" firstAttribute="top" secondItem="C9D-vf-bZx" secondAttribute="bottom" constant="30" id="fyK-MY-biR"/>
                             <constraint firstItem="Viz-jV-H5N" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="gbN-9q-Qla"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qUd-oj-FWM" secondAttribute="trailing" id="jik-Th-qhY"/>
+                            <constraint firstItem="C2P-zq-Sky" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" id="m1A-3m-3NX"/>
                             <constraint firstItem="Viz-jV-H5N" firstAttribute="top" secondItem="ZXb-Yo-ln6" secondAttribute="bottom" constant="30" id="ogE-23-2kg"/>
+                            <constraint firstItem="C2P-zq-Sky" firstAttribute="trailing" secondItem="IHd-ZX-evp" secondAttribute="trailingMargin" id="phe-da-rcG"/>
                             <constraint firstItem="ZXb-Yo-ln6" firstAttribute="height" secondItem="IHd-ZX-evp" secondAttribute="height" multiplier="0.06" id="s2X-3o-ge6"/>
-                            <constraint firstItem="Juh-rC-gOW" firstAttribute="trailing" secondItem="IHd-ZX-evp" secondAttribute="trailingMargin" id="sMG-t4-Hj3"/>
-                            <constraint firstItem="Juh-rC-gOW" firstAttribute="top" secondItem="IfG-Fm-hna" secondAttribute="bottom" constant="20" id="tHq-eO-JXx"/>
                             <constraint firstItem="C9D-vf-bZx" firstAttribute="top" secondItem="Viz-jV-H5N" secondAttribute="bottom" constant="40" id="vVm-r7-V5x"/>
                             <constraint firstItem="ZXb-Yo-ln6" firstAttribute="leading" secondItem="IHd-ZX-evp" secondAttribute="leadingMargin" constant="-20" id="wMW-2H-QnX"/>
                             <constraint firstItem="Keq-lR-8Mf" firstAttribute="width" secondItem="IHd-ZX-evp" secondAttribute="width" multiplier="0.5" id="zNV-Zk-Kdy"/>
@@ -968,11 +996,14 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>
                     <connections>
+                        <outlet property="areaAccessStackView" destination="IfG-Fm-hna" id="9wY-Rt-YC9"/>
                         <outlet property="foodDiscountLabel" destination="rAT-Gi-Y05" id="nBu-gT-jTA"/>
                         <outlet property="merchandiseDiscountLabel" destination="Mzo-bx-K2Q" id="d31-Rr-Umn"/>
                         <outlet property="passTitleLabel" destination="hRH-D0-RJN" id="cw5-ba-N33"/>
                         <outlet property="passTypeLabel" destination="8O4-KT-m58" id="SqC-nA-Fgt"/>
                         <outlet property="rideInfoLabel" destination="UtG-fh-oAI" id="Vwa-9B-fx0"/>
+                        <outlet property="testResultBG" destination="Juh-rC-gOW" id="Fqs-Z2-AsY"/>
+                        <outlet property="testResultLabel" destination="31A-Ac-RKN" id="JGa-mC-w2f"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sxe-eW-UpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
